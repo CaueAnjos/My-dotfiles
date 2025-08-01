@@ -1,9 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     neovim
     ripgrep
   ];
+
+  home.file.".config/nvim".source = ./dotfiles/nvim;
 
   programs.bat =
     let
@@ -32,14 +34,15 @@
     colors = "always";
     icons = "always";
     git = true;
-    theme = builtins.readFile ./dotfiles/eza/tokyonight.yml;
   };
+  home.file.".config/eza/theme.yml".source = ./dotfiles/eza/tokyonight.yml;
 
   programs.zoxide.enable = true;
 
   programs.fzf = {
     enable = true;
     changeDirWidgetCommand = "fd --type dir --hidden";
+    defaultCommand = "fd --type f";
     defaultOptions = [
       "--height 40%"
       "--border"

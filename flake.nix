@@ -24,6 +24,7 @@
           ./home.nix
           ./git.nix
           ./devtools.nix
+          ./shell.nix
         ];
 
         # Optionally use extraSpecialArgs

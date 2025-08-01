@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.username = "kawid";
   home.homeDirectory = "/home/kawid";
@@ -20,26 +20,7 @@
     neofetch
   ];
 
-  home.shellAliases = {
-    ls = "eza --long";
-    la = "eza --long -A";
-    cat = "bat";
-    cd = "z";
-  };
-
-  home.shell.enableZshIntegration = true;
-
-  programs.zsh.enable = true;
-  programs.oh-my-posh = {
-    enable = true;
-    useTheme = "amro";
-  };
-
   programs.bash.enable = true;
-
-  home.file = {
-    ".config/nvim".source = ./dotfiles/nvim;
-  };
 
   home.sessionVariables = {
     EDITOR = "nvim";
