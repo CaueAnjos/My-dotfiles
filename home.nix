@@ -23,7 +23,6 @@
     eza
     bat
     ripgrep
-    lazygit
     yazi
 
     neofetch
@@ -37,18 +36,6 @@
   };
 
   home.shell.enableZshIntegration = true;
-
-  programs.git = {
-    enable = true;
-    userName = "CaueAnjos";
-    userEmail = "141049846+CaueAnjos@users.noreply.github.com";
-    aliases = {
-      st = "status -s";
-      lg = "log --oneline --graph --decorate";
-    };
-  };
-
-  programs.gh.enable = true;
 
   programs.zoxide.enable = true;
 
