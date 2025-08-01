@@ -23,6 +23,7 @@
         modules = [
           ./home.nix
           ./git.nix
+          ./devtools.nix
         ];
 
         # Optionally use extraSpecialArgs

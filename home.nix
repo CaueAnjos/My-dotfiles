@@ -17,14 +17,6 @@
     # for nix
     nixfmt-rfc-style
 
-    #dev tools
-    neovim
-    fd
-    eza
-    bat
-    ripgrep
-    yazi
-
     neofetch
   ];
 
@@ -36,22 +28,6 @@
   };
 
   home.shell.enableZshIntegration = true;
-
-  programs.zoxide.enable = true;
-
-  programs.fzf = {
-    enable = true;
-    changeDirWidgetCommand = "fd --type dir --hidden";
-    defaultOptions = [
-      "--height 40%"
-      "--border"
-    ];
-  };
-
-  programs.yazi = {
-    enable = true;
-    shellWrapperName = "y";
-  };
 
   programs.zsh.enable = true;
   programs.oh-my-posh = {
