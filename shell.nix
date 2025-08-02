@@ -24,6 +24,10 @@
         "zsh-users/zsh-history-substring-search"
       ];
     };
+    initContent = ''
+      bindkey '^p' history-substring-search-down
+      bindkey '^n' history-substring-search-up
+    '';
 
     defaultKeymap = "viins";
     history = {
