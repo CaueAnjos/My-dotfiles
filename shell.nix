@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   home.shellAliases = {
     hs = "home-manager switch";
@@ -12,6 +13,7 @@
 
   programs.zsh = {
     enable = true;
+    dotDir = "${config.xdg.configHome}/zsh";
 
     antidote = {
       enable = true;
