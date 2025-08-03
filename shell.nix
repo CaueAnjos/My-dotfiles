@@ -22,14 +22,16 @@
         "zsh-users/zsh-autosuggestions"
         "zdharma-continuum/fast-syntax-highlighting"
         "zsh-users/zsh-history-substring-search"
+        "jeffreytse/zsh-vi-mode"
       ];
     };
     initContent = ''
-      bindkey '^p' history-substring-search-down
-      bindkey '^n' history-substring-search-up
+      function zvm_after_lazy_keybindings() {
+          zvm_bindkey vicmd '^p' history-substring-search-down
+          zvm_bindkey vicmd '^n' history-substring-search-up
+      }
     '';
 
-    defaultKeymap = "viins";
     history = {
       append = true;
       ignoreDups = true;
