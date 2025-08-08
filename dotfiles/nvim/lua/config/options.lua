@@ -4,6 +4,19 @@
 
 vim.o.shell = "/home/kawid/.nix-profile/bin/zsh"
 
+vim.g.clipboard = {
+  name = "Clipboard",
+  copy = {
+    ["+"] = "cb copy",
+    ["*"] = "cb copy",
+  },
+  paste = {
+    ["+"] = "cb paste",
+    ["*"] = "cb paste",
+  },
+  cache_enabled = false,
+}
+
 vim.opt.wrap = true
 
 vim.opt.tabstop = 4
