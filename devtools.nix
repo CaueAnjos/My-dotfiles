@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     neovim
     ripgrep
+    clipboard-jh
   ];
 
   home.file.".config/nvim".source = ./dotfiles/nvim;
