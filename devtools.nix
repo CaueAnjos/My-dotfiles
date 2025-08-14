@@ -4,6 +4,7 @@
     neovim
     ripgrep
     clipboard-jh
+    docker
   ];
 
   home.file.".config/nvim".source = ./dotfiles/nvim;
