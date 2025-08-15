@@ -9,7 +9,7 @@
     # compilers and essential tools
     gcc
     glibc
-    dotnetCorePackages.sdk_8_0_3xx-bin
+    dotnetCorePackages.sdk_8_0-bin
     cargo
     unzip
     python314
