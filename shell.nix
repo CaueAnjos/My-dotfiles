@@ -11,6 +11,8 @@
 
   home.shell.enableZshIntegration = true;
 
+  home.file."scripts/".source = ./dotfiles/scripts;
+
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
