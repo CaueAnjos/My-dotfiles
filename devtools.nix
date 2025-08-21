@@ -1,13 +1,10 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    neovim
     ripgrep
     clipboard-jh
     docker
   ];
-
-  home.file.".config/nvim".source = ./dotfiles/nvim;
 
   programs.bat =
     let

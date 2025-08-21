@@ -2,7 +2,6 @@
   description = "Home Manager configuration of kawid";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -24,11 +23,9 @@
           ./home.nix
           ./git.nix
           ./devtools.nix
+          ./neovim.nix
           ./shell.nix
         ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
       };
     };
 }
