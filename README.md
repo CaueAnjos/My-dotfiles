@@ -20,9 +20,3 @@ appendWindowsPath = false
 ```
 
 this will fix some performace issues.
-```
-```
-```
-```
-```
-```
