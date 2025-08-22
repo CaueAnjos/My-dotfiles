@@ -6,6 +6,10 @@
     docker
   ];
 
+  home.shellAliases = {
+        dev = "nix develop --command zsh";
+  };
+
   programs.bat =
     let
       tokyonightTheme = pkgs.fetchFromGitHub {
