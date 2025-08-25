@@ -12,10 +12,6 @@
     vscode-json-languageserver
   ];
 
-  home.shellAliases = {
-    omnisharp = "OmniSharp";
-  };
-
   programs.neovim = {
     enable = true;
     defaultEditor = true;
