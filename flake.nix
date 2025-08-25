@@ -25,6 +25,7 @@
           ./devtools.nix
           ./neovim.nix
           ./shell.nix
+          ./wezterm.nix
         ];
       };
     };
