@@ -37,8 +37,8 @@ function M.apply_config(config)
 	config.animation_fps = 120
 
 	-- Shell padrão e diretório inicial
-	config.default_prog = { "C:\\Program Files\\PowerShell\\7\\pwsh.exe", "-NoLogo" }
-	config.default_cwd = "C:\\Users\\kawid"
+	config.default_prog = { "zsh" }
+	config.default_cwd = "~"
 
 	-- Padding da janela
 	config.window_padding = {
