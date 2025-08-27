@@ -5,16 +5,16 @@
 vim.o.shell = "/home/kawid/.nix-profile/bin/zsh"
 
 vim.g.clipboard = {
-  name = "Clipboard",
-  copy = {
-    ["+"] = "cb copy",
-    ["*"] = "cb copy",
-  },
-  paste = {
-    ["+"] = "cb paste",
-    ["*"] = "cb paste",
-  },
-  cache_enabled = false,
+	name = "Clipboard",
+	copy = {
+		["+"] = "cb copy",
+		["*"] = "cb copy",
+	},
+	paste = {
+		["+"] = "cb paste",
+		["*"] = "cb paste",
+	},
+	cache_enabled = false,
 }
 
 vim.opt.wrap = true
@@ -24,5 +24,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
-vim.g.lazyvim_python_lsp = "pyright"
-vim.g.lazyvim_python_ruff = "ruff"
+vim.lsp.enable("omnisharp")
+vim.lsp.enable("nil")
+vim.lsp.enable("jsonls")

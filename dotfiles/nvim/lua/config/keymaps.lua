@@ -5,8 +5,8 @@
 vim.keymap.set("n", "ç", "'", { desc = "Goto mark", silent = true })
 
 vim.keymap.set("n", "<leader>çx", function()
-  local mark = vim.fn.input("Delete mark: ")
-  if mark ~= "" then
-    vim.cmd("delmarks " .. mark)
-  end
+	local mark = vim.fn.input("Delete mark: ")
+	if mark ~= "" then
+		vim.cmd("delmarks " .. mark)
+	end
 end, { desc = "Delete a specific mark", silent = true })
