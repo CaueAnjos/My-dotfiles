@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+{config, ...}: {
   home.shellAliases = {
     hs = "home-manager switch";
     hgc = "nix-collect-garbage -d";
@@ -10,8 +9,6 @@
   };
 
   home.shell.enableZshIntegration = true;
-
-  home.file."scripts/".source = ./dotfiles/scripts;
 
   programs.zsh = {
     enable = true;
