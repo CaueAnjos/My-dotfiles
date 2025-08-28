@@ -7,26 +7,34 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations."kawid" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    nvf,
+    ...
+  }: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    homeConfigurations."kawid" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-        modules = [
-          ./home.nix
-          ./git.nix
-          ./devtools.nix
-          ./neovim.nix
-          ./shell.nix
-          ./wezterm.nix
-        ];
-      };
+      modules = [
+        ./home.nix
+        ./git.nix
+        ./devtools.nix
+        ./neovim.nix
+        ./shell.nix
+        ./wezterm.nix
+
+        nvf.homeManagerModules.default
+      ];
     };
+  };
 }
