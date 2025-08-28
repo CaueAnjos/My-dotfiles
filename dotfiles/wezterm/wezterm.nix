@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
@@ -8,5 +7,5 @@
 
   programs.wezterm.enable = true;
 
-  home.file.".config/wezterm".source = ./dotfiles/wezterm;
+  home.file.".config/wezterm".source = ./src;
 }

@@ -27,12 +27,6 @@
 
       modules = [
         ./home.nix
-        ./git.nix
-        ./devtools.nix
-        ./neovim.nix
-        ./shell.nix
-        ./wezterm.nix
-
         nvf.homeManagerModules.default
       ];
     };
