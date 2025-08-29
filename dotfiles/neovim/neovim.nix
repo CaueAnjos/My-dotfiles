@@ -38,8 +38,8 @@
           inherit name;
           inherit style;
         });
-        tabline.nvimBufferline.enable = true;
         notify.nvim-notify.enable = true;
+        tabline = import ./tabline.nix;
       };
     };
   };
