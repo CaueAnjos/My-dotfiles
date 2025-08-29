@@ -15,13 +15,7 @@
     stateVersion = "25.05";
 
     packages = with pkgs; [
-      gcc
-      glibc
       dotnet-sdk_9
-      cargo
-      unzip
-      python314
-
       neofetch
     ];
   };
