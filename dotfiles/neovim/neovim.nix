@@ -10,6 +10,8 @@
       in {
         package = pkgs.neovim-unwrapped;
 
+        options = import ./options.nix;
+
         lsp = import ./lsp.nix;
         debugger = import ./debugger.nix;
         languages = import ./languages.nix;
@@ -27,10 +29,21 @@
         telescope = import ./telescope.nix;
 
         git = import ./git.nix;
+        terminal = {
+          toggleterm = {
+            enable = true;
+            lazygit.enable = true;
+          };
+        };
 
         binds = {
           whichKey.enable = true;
           cheatsheet.enable = true;
+        };
+
+        ui = {
+          noice.enable = true;
+          fastaction.enable = true;
         };
 
         statusline = import ./statusline.nix theme.name;
