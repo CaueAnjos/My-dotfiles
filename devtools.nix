@@ -3,12 +3,13 @@
     ripgrep
     clipboard-jh
     docker
-    direnv
   ];
 
   home.shellAliases = {
     dev = "nix develop --command zsh";
   };
+
+  programs.direnv.enable = true;
 
   programs.bat = let
     tokyonightTheme = pkgs.fetchFromGitHub {
