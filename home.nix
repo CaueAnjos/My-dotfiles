@@ -15,16 +15,12 @@
     stateVersion = "25.05";
 
     packages = with pkgs; [
-      # compilers and essential tools
       gcc
       glibc
-      dotnetCorePackages.sdk_8_0-bin
+      dotnet-sdk_9
       cargo
       unzip
       python314
-
-      # for nix
-      nixfmt-rfc-style
 
       neofetch
     ];
