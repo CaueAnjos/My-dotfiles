@@ -26,6 +26,8 @@
 
         telescope = import ./telescope.nix;
 
+        git = import ./git.nix;
+
         binds = {
           whichKey.enable = true;
           cheatsheet.enable = true;
