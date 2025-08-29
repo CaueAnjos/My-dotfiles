@@ -24,6 +24,8 @@
           setupOpts.open_for_directories = true;
         };
 
+        telescope = import ./telescope.nix;
+
         binds = {
           whichKey.enable = true;
           cheatsheet.enable = true;
