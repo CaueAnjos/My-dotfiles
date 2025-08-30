@@ -35,6 +35,8 @@
           toggleterm = {
             enable = true;
             lazygit.enable = true;
+            mappings.open = "<C-t>";
+            setupOpts.direction = "float";
           };
         };
 
