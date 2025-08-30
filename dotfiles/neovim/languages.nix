@@ -11,5 +11,8 @@
 
   markdown.enable = true;
   bash.enable = true;
-  csharp.enable = true;
+  csharp = {
+    enable = true;
+    lsp.server = "omnisharp";
+  };
 }
