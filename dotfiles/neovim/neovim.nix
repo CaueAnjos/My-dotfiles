@@ -43,7 +43,7 @@
 
         ui = {
           noice.enable = true;
-          fastaction.enable = true;
+          ftaction.enable = true;
         };
 
         statusline = import ./statusline.nix theme.name;
