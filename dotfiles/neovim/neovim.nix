@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   programs.nvf = {
     enable = true;
     settings = {
@@ -11,6 +15,7 @@
         package = pkgs.neovim-unwrapped;
 
         options = import ./options.nix;
+        autocmds = import ./autocmd.nix lib;
 
         lsp = import ./lsp.nix;
         debugger = import ./debugger.nix;
