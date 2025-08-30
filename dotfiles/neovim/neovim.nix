@@ -18,6 +18,7 @@
         globals = import ./globals.nix;
         autocmds = import ./autocmd.nix lib;
 
+        diagnostics = import ./diagnostics.nix lib;
         lsp = import ./lsp.nix;
         debugger = import ./debugger.nix;
         languages = import ./languages.nix;
