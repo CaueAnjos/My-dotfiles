@@ -15,6 +15,7 @@
         package = pkgs.neovim-unwrapped;
 
         options = import ./options.nix;
+        globals = import ./globals.nix;
         autocmds = import ./autocmd.nix lib;
 
         lsp = import ./lsp.nix;

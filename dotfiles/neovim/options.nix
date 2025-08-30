@@ -4,4 +4,5 @@
   softtabstop = 4;
   expandtab = true;
   autoindent = false;
+  clipboard = "unnamed";
 }
