@@ -26,6 +26,8 @@
           setupOpts.open_for_directories = true;
         };
 
+        utility.smart-splits.enable = true;
+
         telescope = import ./telescope.nix;
 
         git = import ./git.nix;
@@ -43,7 +45,7 @@
 
         ui = {
           noice.enable = true;
-          ftaction.enable = true;
+          fastaction.enable = true;
         };
 
         statusline = import ./statusline.nix theme.name;
