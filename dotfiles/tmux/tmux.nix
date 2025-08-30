@@ -8,6 +8,10 @@
     customPaneNavigationAndResize = true;
     extraConfig = ''
       bind r source-file ~/.config/tmux/tmux.conf
+      unbind '"'
+      unbind %
+      bind-key - split-window -v -c "#{pane_current_path}"
+      bind-key \\ split-window -h -c "#{pane_current_path}"
     '';
 
     plugins = with pkgs.tmuxPlugins; [
