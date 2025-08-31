@@ -5,4 +5,6 @@
   expandtab = true;
   autoindent = false;
   clipboard = "unnamed";
+  ignorecase = true;
+  smartcase = true;
 }

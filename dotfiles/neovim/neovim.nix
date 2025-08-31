@@ -23,22 +23,7 @@
         options = import ./options.nix;
         globals = import ./globals.nix;
         autocmds = import ./autocmd.nix lib;
-        keymaps = [
-          {
-            desc = "Find Notification";
-            key = "<leader>fn";
-            mode = "n";
-            silent = true;
-            action = "<cmd>NoiceTelescope<CR>";
-          }
-          {
-            desc = "Notification";
-            key = "<leader>n";
-            mode = "n";
-            silent = true;
-            action = "<cmd>Noice<CR>";
-          }
-        ];
+        keymaps = import ./keymaps.nix;
 
         diagnostics = import ./diagnostics.nix lib;
         lsp = import ./lsp.nix;
