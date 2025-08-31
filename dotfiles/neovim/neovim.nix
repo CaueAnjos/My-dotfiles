@@ -23,7 +23,14 @@
             key = "<leader>fn";
             mode = "n";
             silent = true;
-            action = "<cmd>Telescope notify<CR>";
+            action = "<cmd>NoiceTelescope<CR>";
+          }
+          {
+            desc = "Notification";
+            key = "<leader>n";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Noice<CR>";
           }
         ];
 
