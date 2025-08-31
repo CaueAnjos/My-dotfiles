@@ -17,6 +17,15 @@
         options = import ./options.nix;
         globals = import ./globals.nix;
         autocmds = import ./autocmd.nix lib;
+        keymaps = [
+          {
+            desc = "Find Notification";
+            key = "<leader>fn";
+            mode = "n";
+            silent = true;
+            action = "<cmd>Telescope notify<CR>";
+          }
+        ];
 
         diagnostics = import ./diagnostics.nix lib;
         lsp = import ./lsp.nix;
