@@ -13,6 +13,12 @@
         };
       in {
         package = pkgs.neovim-unwrapped;
+        extraPlugins = {
+          "smear-cursor.nvim" = {
+            package = pkgs.vimPlugins.smear-cursor-nvim;
+            setup = "require('smear_cursor').setup {}";
+          };
+        };
 
         options = import ./options.nix;
         globals = import ./globals.nix;
