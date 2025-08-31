@@ -35,7 +35,7 @@
 
         utility.smart-splits.enable = true;
 
-        telescope = import ./telescope.nix;
+        telescope = import ./telescope.nix pkgs;
 
         git = import ./git.nix;
         terminal = {
