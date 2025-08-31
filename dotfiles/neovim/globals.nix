@@ -11,4 +11,5 @@
     };
     cache_enabled = false;
   };
+  have_nerd_font = true;
 }
