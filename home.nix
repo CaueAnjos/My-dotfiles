@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./dotfiles/git/git.nix
-    ./dotfiles/neovim/neovim.nix
     ./dotfiles/wezterm/wezterm.nix
     ./dotfiles/shell/shell.nix
     ./dotfiles/tmux/tmux.nix

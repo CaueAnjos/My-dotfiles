@@ -19,12 +19,17 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    packages.system.default =
+      (nvf.lib.neovimConfigurations {
+        pkgs = nixpkgs.legacyPackages.system;
+        modules = [./dotfiles/neovim];
+      }).neovim;
+
     homeConfigurations."kawid" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       modules = [
         ./home.nix
-        nvf.homeManagerModules.default
       ];
     };
   };
