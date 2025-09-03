@@ -5,5 +5,5 @@
     icons = "always";
     git = true;
   };
-  home.file.".config/eza/theme.yml".source = ./dotfiles/eza/tokyonight.yml;
+  home.file.".config/eza/theme.yml".source = ./tokyonight.yml;
 }
