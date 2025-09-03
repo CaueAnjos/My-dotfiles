@@ -15,7 +15,7 @@
     home-manager,
     nvf,
     ...
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
@@ -31,6 +31,9 @@
       modules = [
         ./home-manager/home.nix
       ];
+      extraSpecialArgs = {
+        inherit inputs;
+      };
     };
   };
 }
