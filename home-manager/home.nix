@@ -1,10 +1,12 @@
 {pkgs, ...}: {
   imports = [
-    ./dotfiles/git/git.nix
-    ./dotfiles/wezterm/wezterm.nix
-    ./dotfiles/shell/shell.nix
-    ./dotfiles/tmux/tmux.nix
-
+    ./git
+    ./wezterm
+    ./shell
+    ./tmux
+    ./bat
+    ./eza
+    ./fzf
     ./devtools.nix
   ];
 

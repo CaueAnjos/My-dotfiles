@@ -22,14 +22,14 @@
     packages.${system}.neovim =
       (nvf.lib.neovimConfiguration {
         inherit pkgs;
-        modules = [./dotfiles/neovim/neovim.nix];
+        modules = [./neovim];
       }).neovim;
 
     homeConfigurations."kawid" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
       modules = [
-        ./home.nix
+        ./home-manager/home.nix
       ];
     };
   };
