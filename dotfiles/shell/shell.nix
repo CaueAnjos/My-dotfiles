@@ -6,6 +6,9 @@
     la = "eza -A";
     cat = "bat";
     cd = "z";
+
+    # FIXME: this should be done in the right fast-syntax-highlighting
+    nvim = "nix run ~/.config/home-manager#neovim --";
   };
 
   home.shell.enableZshIntegration = true;
