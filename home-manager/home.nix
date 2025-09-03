@@ -7,6 +7,7 @@
     ./bat
     ./eza
     ./fzf
+    ./yazi
     ./devtools.nix
   ];
 
