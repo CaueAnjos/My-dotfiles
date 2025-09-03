@@ -3,6 +3,10 @@
   lib,
   ...
 }: {
+  imports = [
+    ./modules/autocomplete.nix
+  ];
+
   vim = let
     theme = {
       name = "catppuccin";
@@ -26,8 +30,6 @@
     lsp = import ./lsp.nix;
     debugger = import ./debugger.nix;
     languages = import ./languages.nix;
-
-    autocomplete.blink-cmp.enable = true;
 
     autopairs.nvim-autopairs.enable = true;
 
