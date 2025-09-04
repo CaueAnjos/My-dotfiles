@@ -6,6 +6,7 @@
   imports = [
     ./modules/autocomplete.nix
     ./modules/plugins/smear-cursor.nix
+    ./modules/languages.nix
   ];
 
   vim = let
