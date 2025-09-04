@@ -23,9 +23,6 @@
     keymaps = import ./keymaps.nix;
 
     diagnostics = import ./diagnostics.nix lib;
-    lsp = import ./lsp.nix;
-    debugger = import ./debugger.nix;
-    languages = import ./languages.nix;
 
     autopairs.nvim-autopairs.enable = true;
 
