@@ -5,7 +5,7 @@
 }: {
   imports = [
     ./modules/autocomplete.nix
-    ./modules/plugins/smear-cursor.nix
+    ./modules/plugins
     ./modules/lsp.nix
     ./modules/diagnostics.nix
   ];
