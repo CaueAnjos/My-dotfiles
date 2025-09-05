@@ -6,7 +6,7 @@
   imports = [
     ./modules/autocomplete.nix
     ./modules/plugins/smear-cursor.nix
-    ./modules/languages.nix
+    ./modules/lsp.nix
     ./modules/diagnostics.nix
   ];
 
