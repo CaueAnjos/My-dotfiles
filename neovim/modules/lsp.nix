@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./languages
+  ];
+
   vim = {
     lsp = {
       enable = true;
