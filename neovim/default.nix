@@ -7,6 +7,7 @@
     ./modules/autocomplete.nix
     ./modules/plugins/smear-cursor.nix
     ./modules/languages.nix
+    ./modules/diagnostics.nix
   ];
 
   vim = let
@@ -21,8 +22,6 @@
     globals = import ./globals.nix;
     autocmds = import ./autocmd.nix lib;
     keymaps = import ./keymaps.nix;
-
-    diagnostics = import ./diagnostics.nix lib;
 
     autopairs.nvim-autopairs.enable = true;
 
