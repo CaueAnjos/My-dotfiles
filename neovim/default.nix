@@ -25,12 +25,6 @@
 
     autopairs.nvim-autopairs.enable = true;
 
-    utility.yazi-nvim = {
-      enable = true;
-      mappings.openYaziDir = "<leader>fm";
-      setupOpts.open_for_directories = true;
-    };
-
     utility.smart-splits.enable = true;
 
     telescope = import ./telescope.nix pkgs;
