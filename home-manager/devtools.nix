@@ -7,12 +7,14 @@
     ripgrep
     clipboard-jh
     docker
+    tinyxxd
 
     inputs.self.packages.${pkgs.system}.neovim
   ];
 
   home.shellAliases = {
     dev = "nix develop --command zsh";
+    hex = "tinyxxd";
   };
 
   programs = {
