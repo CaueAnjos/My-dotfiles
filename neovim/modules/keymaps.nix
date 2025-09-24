@@ -23,5 +23,25 @@
       mode = "n";
       action = "<cmd>nohlsearch<CR>";
     }
+
+    # Window, buffers and tabs
+    {
+      desc = "Close Current Window";
+      key = "<leader>wq";
+      mode = "n";
+      action = "<cmd>q<CR>";
+    }
+    {
+      desc = "Vertical Split Window";
+      key = "<leader>w|";
+      mode = "n";
+      action = "<cmd>vsplit<CR>";
+    }
+    {
+      desc = "Horizontal Split Window";
+      key = "<leader>w-";
+      mode = "n";
+      action = "<cmd>split<CR>";
+    }
   ];
 }
