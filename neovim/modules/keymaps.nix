@@ -95,5 +95,13 @@
         end
       '';
     }
+
+    # Marks
+    {
+      desc = "Go To Marck";
+      key = "ç";
+      mode = "n";
+      action = "'";
+    }
   ];
 }
