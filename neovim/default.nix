@@ -8,6 +8,7 @@
     ./modules/plugins
     ./modules/lsp.nix
     ./modules/diagnostics.nix
+    ./modules/keymaps.nix
   ];
 
   vim = let
@@ -21,7 +22,6 @@
     options = import ./options.nix;
     globals = import ./globals.nix;
     autocmds = import ./autocmd.nix lib;
-    keymaps = import ./keymaps.nix;
 
     autopairs.nvim-autopairs.enable = true;
 
