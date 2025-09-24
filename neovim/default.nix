@@ -55,6 +55,5 @@
       inherit style;
     });
     notify.nvim-notify.enable = true;
-    tabline = import ./tabline.nix;
   };
 }
