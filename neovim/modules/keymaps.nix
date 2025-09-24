@@ -43,5 +43,29 @@
       mode = "n";
       action = "<cmd>split<CR>";
     }
+    {
+      desc = "Create New Tab";
+      key = "<Tab>c";
+      mode = "n";
+      action = "<cmd>tabnew<CR>";
+    }
+    {
+      desc = "Quit Tab";
+      key = "<Tab>q";
+      mode = "n";
+      action = "<cmd>tabclose<CR>";
+    }
+    {
+      desc = "Move To Next Tab";
+      key = "<Tab>n";
+      mode = "n";
+      action = "<cmd>tabnext<CR>";
+    }
+    {
+      desc = "Move To Previous Tab";
+      key = "<Tab>p";
+      mode = "n";
+      action = "<cmd>tabprevious<CR>";
+    }
   ];
 }
