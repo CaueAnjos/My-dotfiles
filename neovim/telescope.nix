@@ -2,8 +2,9 @@ pkgs: {
   enable = true;
   extensions = [
     {
-      name = "notify";
-      packages = [pkgs.vimPlugins.nvim-notify];
+      name = "fzf";
+      packages = [pkgs.vimPlugins.telescope-fzf-native-nvim];
+      setup = {fzf = {fuzzy = true;};};
     }
   ];
 }
