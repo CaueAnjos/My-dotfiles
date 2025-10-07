@@ -40,6 +40,6 @@
 
   programs.oh-my-posh = {
     enable = true;
-    useTheme = "tokyonight_storm";
+    useTheme = "tokyo";
   };
 }
