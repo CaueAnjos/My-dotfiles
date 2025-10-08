@@ -13,6 +13,8 @@
       bind-key - split-window -v -c "#{pane_current_path}"
       bind-key \\ split-window -h -c "#{pane_current_path}"
 
+      set -g @custom_copy_command 'cb copy'
+
       # Smart pane switching with awareness of Neovim splits.
       bind-key -n C-h if -F "#{@pane-is-vim}" 'send-keys C-h'  'select-pane -L'
       bind-key -n C-j if -F "#{@pane-is-vim}" 'send-keys C-j'  'select-pane -D'
@@ -39,6 +41,7 @@
 
     plugins = with pkgs.tmuxPlugins; [
       tokyo-night-tmux
+      yank
     ];
   };
 }
