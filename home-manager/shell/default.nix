@@ -40,6 +40,6 @@
 
   programs.oh-my-posh = {
     enable = true;
-    useTheme = "tokyo";
+    settings = builtins.fromJSON (builtins.readFile ./tokyo_modded.json);
   };
 }
