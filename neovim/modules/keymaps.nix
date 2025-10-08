@@ -33,7 +33,7 @@
     }
     {
       desc = "Vertical Split Window";
-      key = "<leader>w|";
+      key = "<leader>w\\";
       mode = "n";
       action = "<cmd>vsplit<CR>";
     }
