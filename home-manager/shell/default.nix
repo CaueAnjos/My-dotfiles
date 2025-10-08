@@ -28,6 +28,8 @@
     initContent = ''
       bindkey '^p' history-substring-search-down
       bindkey '^n' history-substring-search-up
+
+      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
     '';
 
     history = {
