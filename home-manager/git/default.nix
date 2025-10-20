@@ -8,6 +8,11 @@
         st = "status -s";
         lg = "log --oneline --graph --decorate";
       };
+      includes = [
+        {
+          contents.init.defaultBranch = "main";
+        }
+      ];
     };
 
     gh.enable = true;
