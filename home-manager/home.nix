@@ -18,7 +18,6 @@
     stateVersion = "25.05";
 
     packages = with pkgs; [
-      neofetch
     ];
   };
 
