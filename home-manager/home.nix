@@ -8,6 +8,7 @@
     ./eza
     ./fzf
     ./yazi
+    ./fastfetch
     ./devtools.nix
   ];
 
