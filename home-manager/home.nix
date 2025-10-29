@@ -11,9 +11,9 @@
     ./devtools.nix
   ];
 
-  home = {
+  home = rec {
     username = "kawid";
-    homeDirectory = "/home/kawid";
+    homeDirectory = "/home/${username}";
 
     stateVersion = "25.05";
 
