@@ -2,6 +2,7 @@
   description = "Home Manager configuration of kawid";
 
   inputs = {
+    flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "https://flakehub.com/f/NixOS/nixpkgs/0";
     home-manager = {
