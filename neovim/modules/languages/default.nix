@@ -9,6 +9,8 @@
     enableExtraDiagnostics = true;
     enableDAP = true;
 
+    csharp.enable = true;
+
     nix = {
       enable = true;
       lsp.server = "nixd";
