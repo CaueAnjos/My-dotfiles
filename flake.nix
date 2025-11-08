@@ -32,16 +32,5 @@
           inherit inputs;
         };
       }).neovim;
-
-    homeConfigurations."kawid" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-
-      modules = [
-        ./home-manager/home.nix
-      ];
-      extraSpecialArgs = {
-        inherit inputs;
-      };
-    };
   };
 }
