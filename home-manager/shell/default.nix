@@ -42,6 +42,6 @@
 
   programs.oh-my-posh = {
     enable = true;
-    settings = builtins.fromJSON (builtins.readFile ./tokyo_modded.json);
+    configFile = ./tokyo_modded.json;
   };
 }

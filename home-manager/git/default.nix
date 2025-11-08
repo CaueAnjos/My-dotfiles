@@ -2,11 +2,15 @@
   programs = {
     git = {
       enable = true;
-      userName = "CaueAnjos";
-      userEmail = "141049846+CaueAnjos@users.noreply.github.com";
-      aliases = {
-        st = "status -s";
-        lg = "log --oneline --graph --decorate";
+      settings = {
+        user = {
+          name = "CaueAnjos";
+          email = "141049846+CaueAnjos@users.noreply.github.com";
+        };
+        aliases = {
+          st = "status -s";
+          lg = "log --oneline --graph --decorate";
+        };
       };
       includes = [
         {
