@@ -12,25 +12,18 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = {
-    nixpkgs,
-    nixpkgs-stable,
-    home-manager,
-    nvf,
-    ...
-  } @ inputs: let
-    system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
-    pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-  in {
-    packages.${system}.neovim =
-      (nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [./neovim];
-        extraSpecialArgs = {
-          inherit pkgs-stable;
-          inherit inputs;
-        };
-      }).neovim;
-  };
+  outputs = {flake-parts, ...} @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;}
+    {
+      imports = [
+        inputs.home-manager.flakeModules.home-manager
+
+        ./home-manager
+        ./neovim
+      ];
+
+      systems = [
+        "x86_64-linux"
+      ];
+    };
 }
