@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   imports = [
     ./git
     ./wezterm
@@ -17,9 +17,6 @@
     homeDirectory = "/home/${username}";
 
     stateVersion = "25.05";
-
-    packages = with pkgs; [
-    ];
   };
 
   programs.bash.enable = true;
