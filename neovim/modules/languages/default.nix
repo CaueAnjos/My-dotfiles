@@ -1,7 +1,14 @@
 {
-  imports = [
-    ./csharp.nix
-  ];
+  vim.formatter.conform-nvim = {
+    enable = true;
+    setupOpts = {
+      formatters_by_ft = {
+        cs = [
+          "csharpier"
+        ];
+      };
+    };
+  };
 
   vim.languages = {
     enableFormat = true;
