@@ -17,6 +17,7 @@
     enableDAP = true;
 
     csharp.enable = true;
+    go.enable = true;
 
     nix = {
       enable = true;
