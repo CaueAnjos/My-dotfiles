@@ -50,4 +50,10 @@
               ])
     '';
   }
+  {
+    trigger = "pkgs =";
+    body = ''
+      pkgs = nixpkgs.legacyPackages.$\{system};
+    '';
+  }
 ]
