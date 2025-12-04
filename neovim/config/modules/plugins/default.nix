@@ -1,6 +1,5 @@
 {
   imports = [
-    ./default.nix
     ./git.nix
     ./luasnip.nix
     ./marks.nix

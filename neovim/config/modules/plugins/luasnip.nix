@@ -1,7 +1,7 @@
 {
   vim.snippets.luasnip = {
     enable = true;
-    customSnippets = {
+    customSnippets.snipmate = {
       nix = import ./customSnippets/nixSnippets.nix;
     };
   };
