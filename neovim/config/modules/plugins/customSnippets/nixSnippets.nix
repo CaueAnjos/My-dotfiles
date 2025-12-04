@@ -40,4 +40,14 @@
       }
     '';
   }
+  {
+    trigger = "sdk-combine";
+    body = ''
+      (with dotnetCorePackages;
+            combinePackages [
+                $1
+                $2
+              ])
+    '';
+  }
 ]
