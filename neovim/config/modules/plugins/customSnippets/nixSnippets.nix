@@ -26,4 +26,18 @@
       }
     '';
   }
+  {
+    trigger = "dotnet-pkg";
+    body = ''
+      pkgs.buildDotnetModule {
+          pname = "$1";
+          version = "$2";
+          src = ./.;
+          projectFile = "src/$3";
+          dotnet-sdk = pkgs.dotnetCorePackages.$4;
+          nugetDeps = ./deps.json;
+        };
+      }
+    '';
+  }
 ]
