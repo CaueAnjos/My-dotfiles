@@ -56,4 +56,22 @@
       pkgs = nixpkgs.legacyPackages.$\{system};
     '';
   }
+  {
+    trigger = "unstable";
+    body = ''
+      "github:NixOS/nixpkgs/nixpkgs-unstable"
+    '';
+  }
+  {
+    trigger = "channel";
+    body = ''
+      "github:NixOS/nixpkgs/$1"
+    '';
+  }
+  {
+    trigger = "stable";
+    body = ''
+      "https://flakehub.com/f/NixOS/nixpkgs/0"
+    '';
+  }
 ]
