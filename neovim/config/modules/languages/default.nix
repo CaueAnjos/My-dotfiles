@@ -20,11 +20,8 @@
     html.enable = true;
     css.enable = true;
     go.enable = true;
-
-    nix = {
-      enable = true;
-      lsp.server = "nixd";
-    };
+    nix.enable = true;
+    lua.enable = true;
 
     markdown.enable = true;
     bash.enable = true;
