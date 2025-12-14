@@ -12,7 +12,7 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = {flake-parts, ...} @ inputs:
+  outputs = {self, flake-parts, ...} @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;}
     {
       imports = [
@@ -28,5 +28,19 @@
         "x86_64-darwin"
         "aarch64-darwin"
       ];
+
+      perSystem = {
+        lib,
+        system,
+        ...
+      }: {
+        _module.args.pkgs = import self.inputs.nixpkgs {
+          inherit system;
+          config.allowUnfreePredicate = pkg:
+            builtins.elem (lib.getName pkg) [
+              "vscode-extension-ms-dotnettools-csharp"
+            ];
+        };
+      };
     };
 }
