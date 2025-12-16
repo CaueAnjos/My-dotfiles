@@ -1,7 +1,7 @@
 {
   imports = [
     ./git
-    ./wezterm
+    ./ghostty
     ./shell
     ./tmux
     ./bat

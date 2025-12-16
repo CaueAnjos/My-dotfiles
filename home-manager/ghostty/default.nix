@@ -5,7 +5,5 @@
 
   fonts.fontconfig.enable = true;
 
-  programs.wezterm.enable = true;
-
-  home.file.".config/wezterm".source = ./src;
+  programs.ghostty.enable = true;
 }
