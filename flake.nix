@@ -12,12 +12,17 @@
     nvf.url = "github:notashelf/nvf";
   };
 
-  outputs = {self, flake-parts, ...} @ inputs:
+  outputs = {
+    self,
+    flake-parts,
+    ...
+  } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;}
     {
       imports = [
         inputs.home-manager.flakeModules.home-manager
 
+        ./nixos
         ./home-manager
         ./neovim
       ];
