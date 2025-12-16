@@ -10,6 +10,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf.url = "github:notashelf/nvf";
+    xremap-flake.url = "github:xremap/nix-flake";
   };
 
   outputs = {
