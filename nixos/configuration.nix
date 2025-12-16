@@ -12,6 +12,7 @@
       device = "nodev";
       useOSProber = true;
     };
+    timeout = -1;
   };
 
   networking.hostName = "PCCaueNixos";
