@@ -16,6 +16,7 @@ in {
       }
 
       ./users.nix
+      ./keyboard.nix
       ./configuration.nix
       ./hardware-configuration.nix
     ];

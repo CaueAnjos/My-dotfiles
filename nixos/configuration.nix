@@ -24,19 +24,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "pt_BR.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true;
-  };
-
-  services.xserver = {
-    enable = true;
-    xkb = {
-      layout = "br";
-      variant = "abnt2";
-      options = "nodeadkeys";
-    };
-  };
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
