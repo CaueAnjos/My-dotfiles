@@ -16,6 +16,20 @@
             };
           }
         ];
+
+        config.keymap = [
+          {
+            name = "Launch";
+            remap = {
+              "Super-T" = {
+                launch = ["ghostty"];
+              };
+              "Super-B" = {
+                launch = ["firefox"];
+              };
+            };
+          }
+        ];
       };
     }
   ];
