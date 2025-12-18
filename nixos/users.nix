@@ -10,7 +10,12 @@
     groups.input = {};
     users.kawid = {
       isNormalUser = true;
-      extraGroups = ["wheel" "input" "uinput"]; # Enable ‘sudo’ for the user.
+      extraGroups = [
+        "wheel" # Enable ‘sudo’ for the user.
+        "input"
+        "uinput"
+        "podman"
+      ];
     };
   };
 }
