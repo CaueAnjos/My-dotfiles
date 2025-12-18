@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   boot.kernelModules = ["uinput"];
 
   services.udev.extraRules = ''
@@ -16,6 +16,9 @@
         "uinput"
         "podman"
       ];
+      shell = pkgs.zsh;
     };
   };
+
+  programs.zsh.enable = true;
 }
