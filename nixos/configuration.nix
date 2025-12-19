@@ -4,6 +4,8 @@
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "pt_BR.UTF-8";
 
+  programs.nix-ld.enable = true;
+
   environment.gnome.excludePackages = with pkgs; [
     atomix
     cheese
