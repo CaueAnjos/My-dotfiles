@@ -2,6 +2,7 @@
   imports = [
     ./git
     ./ghostty
+    ./obsidian
     ./xremap
     ./syncthing
     ./shell
