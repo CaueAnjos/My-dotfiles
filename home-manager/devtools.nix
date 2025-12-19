@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     ripgrep
     clipboard-jh
-    docker
     tinyxxd
 
     inputs.self.packages.${pkgs.system}.neovim
