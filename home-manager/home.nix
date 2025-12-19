@@ -3,6 +3,7 @@
     ./git
     ./ghostty
     ./xremap
+    ./syncthing
     ./shell
     ./tmux
     ./bat
