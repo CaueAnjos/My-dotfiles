@@ -42,10 +42,7 @@
       }: {
         _module.args.pkgs = import self.inputs.nixpkgs {
           inherit system;
-          config.allowUnfreePredicate = pkg:
-            builtins.elem (lib.getName pkg) [
-              "vscode-extension-ms-dotnettools-csharp"
-            ];
+          config.allowUnfree = true;
         };
       };
     };
