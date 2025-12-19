@@ -7,6 +7,7 @@
       enable = true;
       pulse.enable = true;
     };
+    printing.enable = true;
 
     openssh.enable = true;
   };
