@@ -1,20 +1,6 @@
 {pkgs, ...}: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot";
-    };
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-    };
-    timeout = -1;
-  };
-
   networking.hostName = "PCCaueNixos";
 
   # Configure network connections interactively with nmcli or nmtui.
