@@ -4,9 +4,6 @@
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "pt_BR.UTF-8";
 
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-
   environment.gnome.excludePackages = with pkgs; [
     atomix
     cheese
@@ -25,14 +22,6 @@
     totem
   ];
 
-  # Enable sound.
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-
   programs.firefox.enable = true;
 
   environment.systemPackages = with pkgs; [
@@ -42,25 +31,6 @@
     inotify-tools
     inotify-info
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
