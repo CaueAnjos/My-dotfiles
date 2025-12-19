@@ -18,6 +18,8 @@ in {
       ./users.nix
       ./keyboard.nix
       ./boot.nix
+      ./network.nix
+      ./services.nix
       ./configuration.nix
       ./hardware-configuration.nix
     ];
