@@ -1,14 +1,7 @@
 {pkgs, ...}: {
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
-  networking.hostName = "PCCaueNixos";
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
-
   time.timeZone = "America/Sao_Paulo";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "pt_BR.UTF-8";
 
   services.displayManager.gdm.enable = true;
