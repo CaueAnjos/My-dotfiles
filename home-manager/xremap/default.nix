@@ -29,6 +29,12 @@
               };
             };
           }
+          {
+            name = "Global";
+            remap = {
+              "Ctrl-M" = "Enter";
+            };
+          }
         ];
       };
     }
