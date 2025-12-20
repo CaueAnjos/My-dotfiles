@@ -7,13 +7,12 @@
 
   programs.ghostty = {
     enable = true;
-    enableZshIntegration = false;
     settings = {
-      font-size = 15;
+      font-size = 13;
       cursor-style = "block";
-      cursor-opacity = 0.5;
       mouse-hide-while-typing = true;
-      background-opacity = 0.5;
+      background-opacity = 0.7;
+      quit-after-last-window-closed = false;
     };
   };
 }

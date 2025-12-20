@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   boot.kernelModules = ["uinput"];
 
   services.udev.extraRules = ''
@@ -16,7 +20,7 @@
         "uinput"
         "podman"
       ];
-      shell = pkgs.zsh;
+      shell = lib.getExe pkgs.zsh;
     };
   };
 

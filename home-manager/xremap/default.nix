@@ -22,7 +22,7 @@
             name = "Launch";
             remap = {
               "Super-T" = {
-                launch = ["ghostty"];
+                launch = ["ghostty" "+new-window"];
               };
               "Super-B" = {
                 launch = ["firefox"];
