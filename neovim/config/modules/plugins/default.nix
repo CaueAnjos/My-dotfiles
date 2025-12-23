@@ -9,5 +9,6 @@
     ./tiny-inline-diagnostic.nix
     ./todo-comments.nix
     ./yazi.nix
+    ./fastaction.nix
   ];
 }
