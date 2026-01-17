@@ -13,6 +13,7 @@
     ./yazi
     ./fastfetch
     ./hyprland
+    ./waybar
     ./devtools.nix
   ];
 

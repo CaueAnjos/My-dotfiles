@@ -1,5 +1,6 @@
 {
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -7,6 +8,15 @@
     package = inputs.hyperland.packages.${pkgs.system}.hyprland;
     enable = true;
     settings = {
+      exec-once = [
+        "${lib.getExe pkgs.waybar}"
+      ];
+
+      input = {
+        kb_layout = "us,br";
+        kb_options = "grp:alt_shift_toggle";
+      };
+
       "$mod" = "SUPER";
       animations = {
         enabled = true;
@@ -62,8 +72,7 @@
           "$mod SHIFT, l, movewindow, r"
 
           "$mod, d, killactive"
-
-          "$mod, SPACE, exec, hyprlauncher"
+          "$mod, Escape, exec, systemctl --user restart waybar.service"
         ]
         ++ (builtins.concatLists (builtins.genList (
             i: let
@@ -86,23 +95,29 @@
 
   services = {
     dunst.enable = true;
-  };
-  services.hyprlauncher = {
-    enable = true;
-    settings = {
-      cache = {
-        enabled = true;
-      };
-      finders = {
-        desktop_icons = true;
-        math_prefix = "=";
-      };
-      general = {
-        grab_focus = true;
-      };
-      ui = {
-        window_size = "400 260";
+    swww.enable = true;
+    hypridle = {
+      enable = true;
+      settings = {
+        general = {
+          lock_cmd = "pidof hyprlock || hyprlock";
+          before_sleep_cmd = "loginctl lock-session";
+          after_sleep_cmd = "hyprctl dispatch dpms on";
+        };
+        listener = [
+          {
+            timeout = 1800;
+            on-timeout = "systemctl suspend";
+          }
+          {
+            timeout = 150;
+            on-timeout = "brightnessctl -s set 10";
+            on-resume = "brightnessctl -r";
+          }
+        ];
       };
     };
   };
+
+  programs.fuzzel.enable = true;
 }

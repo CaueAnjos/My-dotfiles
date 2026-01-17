@@ -22,6 +22,7 @@ in {
       ./services.nix
       ./configuration.nix
       ./hardware-configuration.nix
+      ./display-manager.nix
     ];
   };
 }
