@@ -9,7 +9,12 @@
   };
 
   home.shell.enableFishIntegration = true;
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    functions = {
+      "fish_greeting".body = "";
+    };
+  };
   programs.oh-my-posh = {
     enable = true;
     configFile = ./tokyo_modded.json;
