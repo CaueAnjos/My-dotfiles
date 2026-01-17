@@ -5,27 +5,11 @@
   time.timeZone = "America/Sao_Paulo";
   i18n.defaultLocale = "pt_BR.UTF-8";
 
-  programs.nix-ld.enable = true;
-
-  environment.gnome.excludePackages = with pkgs; [
-    atomix
-    cheese
-    epiphany
-    evince
-    geary
-    gedit
-    gnome-characters
-    gnome-music
-    gnome-photos
-    gnome-terminal
-    gnome-tour
-    hitori
-    iagno
-    tali
-    totem
-  ];
-
-  programs.firefox.enable = true;
+  programs = {
+    nix-ld.enable = true;
+    firefox.enable = true;
+    hyprland.enable = true;
+  };
 
   environment.systemPackages = with pkgs; [
     vim
@@ -34,6 +18,8 @@
     inotify-tools
     inotify-info
   ];
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

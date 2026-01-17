@@ -11,6 +11,7 @@
     };
     nvf.url = "github:notashelf/nvf";
     xremap-flake.url = "github:xremap/nix-flake";
+    hyperland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = {

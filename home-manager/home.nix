@@ -12,6 +12,7 @@
     ./fzf
     ./yazi
     ./fastfetch
+    ./hyprland
     ./devtools.nix
   ];
 
