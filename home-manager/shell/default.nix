@@ -1,4 +1,4 @@
-{config, ...}: {
+{
   home.shellAliases = {
     hs = "home-manager switch";
     hgc = "nix-collect-garbage -d";
@@ -8,38 +8,8 @@
     cd = "z";
   };
 
-  home.shell.enableZshIntegration = true;
-
-  programs.zsh = {
-    enable = true;
-    dotDir = "${config.xdg.configHome}/zsh";
-
-    antidote = {
-      enable = true;
-      plugins = [
-        "mattmc3/ez-compinit"
-        "zsh-users/zsh-completions"
-        "aloxaf/fzf-tab"
-        "zsh-users/zsh-autosuggestions"
-        "zdharma-continuum/fast-syntax-highlighting"
-        "zsh-users/zsh-history-substring-search"
-      ];
-    };
-    initContent = ''
-      bindkey '^p' history-substring-search-down
-      bindkey '^n' history-substring-search-up
-
-      zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-    '';
-
-    history = {
-      append = true;
-      ignoreDups = true;
-      saveNoDups = true;
-      share = true;
-    };
-  };
-
+  home.shell.enableFishIntegration = true;
+  programs.fish.enable = true;
   programs.oh-my-posh = {
     enable = true;
     configFile = ./tokyo_modded.json;

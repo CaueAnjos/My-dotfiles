@@ -20,7 +20,7 @@
         "uinput"
         "podman"
       ];
-      shell = lib.getExe pkgs.zsh;
+      shell = lib.getExe pkgs.fish;
     };
   };
 
