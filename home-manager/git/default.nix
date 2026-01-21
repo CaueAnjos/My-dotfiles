@@ -7,10 +7,6 @@
           name = "CaueAnjos";
           email = "141049846+CaueAnjos@users.noreply.github.com";
         };
-        alias = {
-          st = "status -s";
-          lg = "log --oneline --graph --decorate";
-        };
       };
       includes = [
         {
