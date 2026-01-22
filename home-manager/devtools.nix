@@ -5,14 +5,13 @@
 }: {
   home.packages = with pkgs; [
     ripgrep
-    clipboard-jh
+    bc
     tinyxxd
 
     inputs.self.packages.${pkgs.system}.neovim
   ];
 
   home.shellAliases = {
-    dev = "nix develop --command zsh";
     hex = "tinyxxd";
   };
 
