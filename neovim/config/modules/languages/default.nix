@@ -1,30 +1,34 @@
 {
-  vim.formatter.conform-nvim = {
-    enable = true;
-    setupOpts = {
-      formatters_by_ft = {
-        cs = [
-          "csharpier"
-        ];
+  vim = {
+    formatter.conform-nvim = {
+      enable = true;
+      setupOpts = {
+        formatters_by_ft = {
+          cs = [
+            "csharpier"
+          ];
+        };
       };
     };
-  };
 
-  vim.languages = {
-    enableFormat = true;
-    enableTreesitter = true;
-    enableExtraDiagnostics = true;
-    enableDAP = true;
+    treesitter.indent.enable = false;
 
-    csharp.enable = true;
-    html.enable = true;
-    css.enable = true;
-    ts.enable = true;
-    go.enable = true;
-    nix.enable = true;
-    lua.enable = true;
+    languages = {
+      enableFormat = true;
+      enableTreesitter = true;
+      enableExtraDiagnostics = true;
+      enableDAP = true;
 
-    markdown.enable = true;
-    bash.enable = true;
+      csharp.enable = true;
+      html.enable = true;
+      css.enable = true;
+      ts.enable = true;
+      go.enable = true;
+      nix.enable = true;
+      lua.enable = true;
+
+      markdown.enable = true;
+      bash.enable = true;
+    };
   };
 }
