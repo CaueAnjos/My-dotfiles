@@ -9,6 +9,7 @@
   programs.ghostty = {
     enable = true;
     settings = {
+      theme = "TokyoNight Storm";
       font-family = [
         "JetBrainsMono Nerd Font"
         "Noto Sans Symbols 2"
