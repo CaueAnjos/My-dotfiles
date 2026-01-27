@@ -1,7 +1,5 @@
 {
   home.shellAliases = {
-    hs = "home-manager switch";
-    hgc = "nix-collect-garbage -d";
     ls = "eza";
     la = "eza -A";
     cat = "bat";
