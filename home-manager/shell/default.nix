@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   home.shellAliases = {
     ls = "eza";
     la = "eza -A";
@@ -20,17 +20,19 @@
       # Use a custom palette
       palette = "tokyo_night";
 
-      palettes.tokyo_night = {
-        bg = "#1a1b26";
-        fg = "#c0caf5";
-        blue = "#7aa2f7";
-        cyan = "#7dcfff";
-        green = "#9ece6a";
-        magenta = "#bb9af7";
-        orange = "#ff9e64";
-        red = "#f7768e";
-        yellow = "#e0af68";
-        gray = "#565f89";
+      palettes.tokyo_night = let
+        inherit (config.colorScheme) palette;
+      in {
+        bg = "#${palette.base00}";
+        fg = "#${palette.base05}";
+        blue = "#${palette.base0D}";
+        cyan = "#${palette.base0C}";
+        green = "#${palette.base0B}";
+        magenta = "#${palette.base0E}";
+        orange = "#${palette.base09}";
+        red = "#${palette.base08}";
+        yellow = "#${palette.base0A}";
+        gray = "#${palette.base03}";
       };
 
       format = ''
