@@ -17,7 +17,7 @@
         device = "nodev";
         useOSProber = true;
       };
-      timeout = -1;
+      timeout = 0;
     };
 
     consoleLogLevel = 3;
