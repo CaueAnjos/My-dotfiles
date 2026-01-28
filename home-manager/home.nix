@@ -16,6 +16,7 @@
     ./waybar
     ./walker
     ./devtools.nix
+    ./colorscheme.nix
   ];
 
   home = rec {

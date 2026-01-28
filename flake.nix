@@ -17,6 +17,7 @@
       inputs.elephant.follows = "elephant";
     };
     hyperland.url = "github:hyprwm/Hyprland";
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = {
@@ -27,8 +28,6 @@
     flake-parts.lib.mkFlake {inherit inputs;}
     {
       imports = [
-        inputs.home-manager.flakeModules.home-manager
-
         ./nixos
         ./home-manager
         ./neovim
