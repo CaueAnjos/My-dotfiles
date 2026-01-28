@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: {
   imports = [inputs.walker.homeManagerModules.default];
@@ -28,7 +29,7 @@
     runAsService = true;
 
     config = {
-      theme = "TokyoNight";
+      theme = "nix-collors";
       placeholders.default = {
         input = "Search";
         list = "No Results";
@@ -48,8 +49,8 @@
 
     # Custom theme
     themes = {
-      "TokyoNight" = {
-        style = builtins.readFile ./walker.css;
+      "nix-collors" = {
+        style = import ./theme.nix config.colorScheme.palette;
       };
     };
   };
