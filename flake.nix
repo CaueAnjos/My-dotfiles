@@ -11,6 +11,11 @@
     };
     nvf.url = "github:notashelf/nvf";
     xremap-flake.url = "github:xremap/nix-flake";
+    elephant.url = "github:abenz1267/elephant";
+    walker = {
+      url = "github:abenz1267/walker";
+      inputs.elephant.follows = "elephant";
+    };
     hyperland.url = "github:hyprwm/Hyprland";
   };
 

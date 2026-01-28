@@ -14,6 +14,7 @@
     ./fastfetch
     ./hyprland
     ./waybar
+    ./walker
     ./devtools.nix
   ];
 

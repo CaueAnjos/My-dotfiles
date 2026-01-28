@@ -72,7 +72,6 @@
           "$mod SHIFT, l, movewindow, r"
 
           "$mod, d, killactive"
-          "$mod, Escape, exec, systemctl --user restart waybar.service"
         ]
         ++ (builtins.concatLists (builtins.genList (
             i: let
@@ -118,6 +117,4 @@
       };
     };
   };
-
-  programs.fuzzel.enable = true;
 }
