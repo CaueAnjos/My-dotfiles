@@ -1,12 +1,13 @@
 {
   lib,
+  config,
   pkgs,
   ...
 }: {
   programs = {
     waybar = {
       enable = true;
-      style = ./waybar.css;
+      style = import ./waybar.nix config.colorScheme.palette;
       settings = [
         {
           modules-left = ["custom/nixos" "hyprland/workspaces" "hyprland/window"];
