@@ -30,7 +30,6 @@
       imports = [
         ./nixos
         ./home-manager
-        ./neovim
       ];
 
       systems = [

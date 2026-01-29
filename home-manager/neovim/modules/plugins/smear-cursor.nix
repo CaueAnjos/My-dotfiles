@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  vim.lazy.plugins = {
+  programs.nvf.settings.vim.lazy.plugins = {
     "smear-cursor.nvim" = {
       package = pkgs.vimPlugins.smear-cursor-nvim;
       event = "BufEnter";

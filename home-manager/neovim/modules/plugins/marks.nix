@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  vim.lazy.plugins = {
+  programs.nvf.settings.vim.lazy.plugins = {
     "marks.nvim" = {
       package = pkgs.vimPlugins.marks-nvim;
       event = "BufEnter";

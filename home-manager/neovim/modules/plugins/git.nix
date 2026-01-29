@@ -1,5 +1,5 @@
 {
-  vim.git = {
+  programs.nvf.settings.vim.git = {
     enable = true;
     gitsigns = {
       enable = true;
@@ -8,7 +8,7 @@
     neogit.enable = true;
   };
 
-  vim.terminal.toggleterm = {
+  programs.nvf.settings.vim.terminal.toggleterm = {
     enable = true;
     lazygit.enable = true;
   };

@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  vim.lazy.plugins = {
+  programs.nvf.settings.vim.lazy.plugins = {
     "tiny-inline-diagnostic.nvim" = {
       package = pkgs.vimPlugins.tiny-inline-diagnostic-nvim;
       event = "BufEnter";

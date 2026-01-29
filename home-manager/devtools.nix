@@ -1,14 +1,8 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     ripgrep
     bc
     tinyxxd
-
-    inputs.self.packages.${pkgs.system}.neovim
   ];
 
   home.shellAliases = {

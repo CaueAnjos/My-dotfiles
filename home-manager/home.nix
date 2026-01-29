@@ -15,6 +15,7 @@
     ./hyprland
     ./waybar
     ./walker
+    ./neovim
     ./devtools.nix
     ./colorscheme.nix
   ];

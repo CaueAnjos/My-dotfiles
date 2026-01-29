@@ -1,5 +1,5 @@
 {
-  vim = {
+  programs.nvf.settings.vim = {
     ui.fastaction.enable = true;
     lsp.mappings.codeAction = null;
     keymaps = [

@@ -1,5 +1,5 @@
 {
-  vim.utility.yazi-nvim = {
+  programs.nvf.settings.vim.utility.yazi-nvim = {
     enable = true;
     mappings = {
       openYaziDir = "<leader>ed";

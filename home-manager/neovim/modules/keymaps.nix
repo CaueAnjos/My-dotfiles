@@ -1,5 +1,5 @@
 {
-  vim.keymaps = [
+  programs.nvf.settings.vim.keymaps = [
     # Notifications
     {
       desc = "Find Notification";
@@ -78,30 +78,25 @@
       key = "<leader>bo";
       mode = "n";
       lua = true;
-      # NOTE: this lua function delete all hidden buffers
-      action = ''
-        function()
-          local current_buf = vim.api.nvim_get_current_buf()
-          local bufs = vim.api.nvim_list_bufs()
+      action =
+        /*
+        lua
+        */
+        ''
+          function()
+            local current_buf = vim.api.nvim_get_current_buf()
+            local bufs = vim.api.nvim_list_bufs()
 
-          for _, buf in ipairs(bufs) do
-            if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
-              local wins = vim.fn.win_findbuf(buf)
-              if #wins == 0 then
-                vim.api.nvim_buf_delete(buf, { force = false })
+            for _, buf in ipairs(bufs) do
+              if buf ~= current_buf and vim.api.nvim_buf_is_loaded(buf) then
+                local wins = vim.fn.win_findbuf(buf)
+                if #wins == 0 then
+                  vim.api.nvim_buf_delete(buf, { force = false })
+                end
               end
             end
           end
-        end
-      '';
-    }
-
-    # Marks
-    {
-      desc = "Go To Marck";
-      key = "ç";
-      mode = "n";
-      action = "'";
+        '';
     }
   ];
 }

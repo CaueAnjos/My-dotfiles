@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  vim = {
+  programs.nvf.settings.vim = {
     extraPackages = with pkgs; [
       wl-clipboard
     ];
