@@ -6,7 +6,7 @@ in {
   ];
 
   flake.homeConfigurations."kawid" = home-manager.lib.homeManagerConfiguration {
-    pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
+    pkgs = inputs.nixpkgs.packages.x86_64-linux;
     modules = [
       ./home.nix
     ];
