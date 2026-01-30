@@ -6,7 +6,7 @@
     ./xremap
     ./syncthing
     ./shell
-    ./tmux
+    ./zellij
     ./bat
     ./eza
     ./fzf
