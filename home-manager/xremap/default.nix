@@ -51,7 +51,6 @@ in {
           "Super-T".launch = [(lib.getExe pkgs.ghostty) "+new-window"];
           "Super-B".launch = [(lib.getExe pkgs.firefox)];
           "Super-Space".launch = [(lib.getExe pkgs.walker)];
-          "Alt-l".launch = [(lib.getExe pkgs.hyprlock)];
           "Alt-P".launch = [(lib.getExe pike-wallpaper)];
         };
       }
