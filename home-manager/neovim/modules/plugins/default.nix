@@ -5,7 +5,7 @@
     ./marks.nix
     ./mini.nix
     ./smear-cursor.nix
-    ./telescope.nix
+    ./fzflua.nix
     ./tiny-inline-diagnostic.nix
     ./todo-comments.nix
     ./yazi.nix
