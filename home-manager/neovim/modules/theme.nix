@@ -25,9 +25,19 @@
           exclude_groups = [
             "StatusLine"
             "StatusLineNC"
+            "NotifyBackground"
           ];
         };
-        after = "vim.cmd('TransparentEnable')";
+        after =
+          /*
+          lua
+          */
+          ''
+            require("notify").setup({
+                    background_colour = "#000000",
+                    })
+            vim.cmd('TransparentEnable')
+          '';
       };
     };
 
