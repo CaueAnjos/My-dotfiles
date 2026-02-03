@@ -2,7 +2,9 @@
   pkgs,
   config,
   ...
-}: {
+}: let
+  inherit (config.colorScheme) palette;
+in {
   programs.nvf.settings.vim = {
     lazy.plugins = {
       "transparent.nvim" = {
@@ -37,6 +39,30 @@
                     background_colour = "#000000",
                     })
             vim.cmd('TransparentEnable')
+
+
+            -- Better Theme!
+            local groups = {
+                ["@field"] = {fg = "#${palette.base0D}"},
+                ["@parameter"] = {fg = "#${palette.base0A}", italic = true},
+                ["@variable"] = {fg = "#${palette.base04}"},
+                ["@keyword"] = {fg = "#${palette.base0E}", italic = true},
+                ["@keyword.import"] = {fg = "#${palette.base0E}", italic = true},
+                ["@type"] = {fg = "#${palette.base0C}"},
+                ["@operator"] = {fg = "#${palette.base09}"},
+
+                -- lsp
+                ["@lsp.type.property"] = {link = "@field"},
+                ["@lsp.type.variable"] = {link = "@variable"},
+                ["@lsp.type.interface"] = {link = "@type"},
+                ["@lsp.type.class"] = {link = "@type"},
+                ["@lsp.type.namespace"] = {link = "@type"},
+            }
+
+            -- add highlights
+            for group, settings in pairs(groups) do
+                vim.api.nvim_set_hl(0, group, settings)
+            end
           '';
       };
     };
