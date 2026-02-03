@@ -14,8 +14,216 @@
 in {
   programs.zellij = {
     enable = true;
-
+    extraConfig = ''
+      keybinds {
+      }
+    '';
     settings = {
+      keybinds = {
+        unbind._args = ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"];
+        shared_except = {
+          _args = ["locked"];
+          _children = [
+            {
+              bind = {
+                _args = ["Ctrl h"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["move_focus"];
+                          payload._args = ["left"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Ctrl j"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["move_focus"];
+                          payload._args = ["down"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Ctrl k"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["move_focus"];
+                          payload._args = ["up"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Ctrl l"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["move_focus"];
+                          payload._args = ["right"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Alt h"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["resize"];
+                          payload._args = ["left"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Alt j"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["resize"];
+                          payload._args = ["down"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Alt k"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["resize"];
+                          payload._args = ["up"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+            {
+              bind = {
+                _args = ["Alt l"];
+                _children = [
+                  {
+                    MessagePlugin = {
+                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
+                      _children = [
+                        {
+                          name._args = ["resize"];
+                          payload._args = ["right"];
+                        }
+                      ];
+                    };
+                  }
+                ];
+              };
+            }
+          ];
+        };
+        normal._children = [
+          {
+            bind = {
+              _args = ["Ctrl b"];
+              _children = [
+                {
+                  SwitchToMode._args = ["pane"];
+                }
+              ];
+            };
+          }
+          {
+            bind = {
+              _args = ["Ctrl e"];
+              _children = [
+                {
+                  SwitchToMode._args = ["tab"];
+                }
+              ];
+            };
+          }
+          {
+            bind = {
+              _args = ["Ctrl x"];
+              _children = [
+                {
+                  SwitchToMode._args = ["session"];
+                }
+              ];
+            };
+          }
+          {
+            bind = {
+              _args = ["Ctrl ;"];
+              _children = [
+                {
+                  SwitchToMode._args = ["move"];
+                }
+              ];
+            };
+          }
+          {
+            bind = {
+              _args = ["Ctrl '"];
+              _children = [
+                {
+                  SwitchToMode._args = ["resize"];
+                }
+              ];
+            };
+          }
+        ];
+      };
+
       simplified_ui = true;
       pane_frames = false;
       show_startup_tips = false;
@@ -23,7 +231,7 @@ in {
 
       themes.base16 = {
         # Unselected text (status bar text, etc)
-        text_unselected = {
+        text_unsesasdflected = {
           base = rgb.base05;
           background = rgb.base00;
           emphasis_0 = rgb.base0D;
