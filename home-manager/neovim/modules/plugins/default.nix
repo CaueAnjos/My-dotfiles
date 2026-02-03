@@ -10,5 +10,6 @@
     ./todo-comments.nix
     ./yazi.nix
     ./fastaction.nix
+    ./notify.nix
   ];
 }
