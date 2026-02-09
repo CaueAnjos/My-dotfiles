@@ -116,23 +116,8 @@
           ignore_empty_input = true;
         };
 
-        background = let
-          wallpapers = pkgs.stdenv.mkDerivation {
-            name = "wallpapers";
-            src = pkgs.fetchFromGitHub {
-              owner = "greed-d";
-              repo = "tokyonight-walls";
-              rev = "25e8ab14b4925a4b9b10cd6416fe3b97d313f76d";
-              hash = "sha256-YvPv33BPJSbvXVMTry4XvKU2FDLyMdCBUmuoWNXoZ4A=";
-            };
-            installPhase = ''
-              mkdir $out
-              cp * $out
-            '';
-            dontBuild = true;
-          };
-        in {
-          path = "${wallpapers}/crucifixion.jpg";
+        background = {
+          path = "screenshot";
           blur_passes = 3;
           blur_size = 8;
           noise = 0.0117;
