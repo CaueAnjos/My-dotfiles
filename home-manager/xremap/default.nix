@@ -4,22 +4,8 @@
   pkgs,
   ...
 }: let
-  wallpapers = pkgs.stdenv.mkDerivation {
-    name = "wallpapers";
-    src = pkgs.fetchFromGitHub {
-      owner = "atraxsrc";
-      repo = "tokyonight-wallpapers";
-      rev = "934ab9932f8074fe1f96a07cac5926c62760caf5";
-      hash = "sha256-GAkJ7l8vwJsyIe2Wl7r8Bw0cZ4RiJ44vaaaLCtIbzQY=";
-    };
-    installPhase = ''
-      mkdir $out
-      cp * $out
-    '';
-    dontBuild = true;
-  };
   pike-wallpaper = pkgs.writeShellScriptBin "pike-wallpaper" ''
-    WALLPAPER=$(find "${wallpapers}" -type f | shuf -n 1)
+    WALLPAPER=$(find "${inputs.gruvbox-walls.packages.${pkgs.system}.default}" -type f | shuf -n 1)
     swww img "$WALLPAPER" \
     --transition-type grow \
     --transition-duration 1

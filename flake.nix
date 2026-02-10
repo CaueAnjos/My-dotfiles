@@ -20,6 +20,7 @@
     };
     hyperland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
+    gruvbox-walls.url = "github:AngelJumbo/gruvbox-wallpapers";
   };
 
   outputs = {

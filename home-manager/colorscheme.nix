@@ -2,7 +2,7 @@
   inherit (inputs) nix-colors;
 
   # NOTE: this name should be at [base16](https://github.com/tinted-theming/base16-schemes)
-  theme = "rose-pine";
+  theme = "gruvbox-dark-hard";
 in {
   imports = [
     nix-colors.homeManagerModules.default
