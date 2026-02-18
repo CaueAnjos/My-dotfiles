@@ -103,15 +103,44 @@
           before_sleep_cmd = "loginctl lock-session";
           after_sleep_cmd = "hyprctl dispatch dpms on";
         };
-        listener = [
+        listener = let
+          blackscreen = pkgs.writeShellApplication {
+            name = "blackscreen";
+            runtimeInputs = with pkgs; [
+              bc
+              ddcutil
+            ];
+            text = ''
+              TARGET=0
+              DURATION=2
+
+              current=$(ddcutil getvcp 10 | grep -oP "([0-9]+)(?=,)")
+              STEPS=1
+              STAGES=$(echo "scale=2; ($current - $TARGET) / $STEPS" | bc)
+              DELAY=$(echo "scale=2; $DURATION / $STAGES" | bc)
+              echo "$DELAY"
+
+              # shellcheck disable=SC2086
+              while [ $current -gt $TARGET ]; do
+                  ((current = current - STEPS))
+                  ddcutil setvcp 10 $current -b 4 --sleep-multiplier .1
+                  sleep "$DELAY"
+              done
+            '';
+          };
+        in [
           {
             timeout = 1800;
             on-timeout = "systemctl suspend";
           }
           {
             timeout = 150;
-            on-timeout = "brightnessctl -s set 10";
-            on-resume = "brightnessctl -r";
+            on-timeout = "${lib.getExe blackscreen}";
+            on-resume = "pkill blackscreen | ${lib.getExe pkgs.ddcutil} setvcp 10 60 -b 4 --sleep-multiplier .1";
+          }
+          {
+            timeout = 160;
+            on-timeout = "loginctl lock-session";
           }
         ];
       };

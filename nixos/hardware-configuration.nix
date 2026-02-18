@@ -36,6 +36,7 @@
 
   hardware = {
     cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+    i2c.enable = true;
 
     graphics.enable = true;
     nvidia = {

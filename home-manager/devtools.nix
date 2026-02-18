@@ -3,6 +3,7 @@
     ripgrep
     bc
     tinyxxd
+    ddcutil
   ];
 
   home.shellAliases = {

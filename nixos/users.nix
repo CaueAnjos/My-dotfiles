@@ -19,6 +19,7 @@
         "input"
         "uinput"
         "podman"
+        "i2c"
       ];
       shell = lib.getExe pkgs.fish;
     };
