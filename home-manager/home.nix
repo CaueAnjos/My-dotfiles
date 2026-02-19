@@ -17,6 +17,7 @@
     ./walker
     ./neovim
     ./devtools.nix
+    ./btop
     ./colorscheme.nix
   ];
 
