@@ -11,7 +11,7 @@
       settings = [
         {
           modules-left = ["custom/nixos" "hyprland/workspaces" "hyprland/window"];
-          modules-center = ["clock"];
+          modules-center = ["clock" "custom/inhibitor"];
           modules-right = ["hyprland/language" "network" "pulseaudio" "custom/power"];
           "custom/nixos" = {
             format = "󱄅";
@@ -33,6 +33,41 @@
             on-scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
             on-scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
             format-icons = ["" " " " "];
+          };
+          "custom/inhibitor" = let
+            toggleInhibitor = pkgs.writeShellApplication {
+              name = "toggleInhibitor";
+              runtimeInputs = [
+                pkgs.notify-desktop
+              ];
+              text = ''
+                set +u
+                STATE_FILE="/tmp/waybar_toggle_inhibitor"
+
+                if [[ "$1" == "toggle" ]]; then
+                    if [[ -f "$STATE_FILE" ]]; then
+                        systemctl --user stop hypridle.service
+                        rm "$STATE_FILE"
+                        notify-desktop "inhibitor actived" -u low -t 1500
+                    else
+                        systemctl --user start hypridle.service
+                        touch "$STATE_FILE"
+                        notify-desktop "inhibitor deactivated" -u low -t 1500
+                    fi
+                fi
+
+                if [[ -f "$STATE_FILE" ]]; then
+                    echo '{"text":"󰍹","class":"off"}'
+                else
+                    echo '{"text":"󰷛","class":"on"}'
+                fi
+              '';
+            };
+          in {
+            exec = lib.getExe toggleInhibitor;
+            on-click = "${lib.getExe toggleInhibitor} toggle";
+            interval = 1;
+            return-type = "json";
           };
           "clock" = {
             interval = 1;
