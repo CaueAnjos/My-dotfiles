@@ -48,11 +48,11 @@
                     if [[ -f "$STATE_FILE" ]]; then
                         systemctl --user stop hypridle.service
                         rm "$STATE_FILE"
-                        notify-desktop "inhibitor actived" -u low -t 1500
+                        notify-desktop "inhibitor ON" "Screen wont sleep until you turn it off" -a "system" -u low -t 3000 -r 9991
                     else
                         systemctl --user start hypridle.service
                         touch "$STATE_FILE"
-                        notify-desktop "inhibitor deactivated" -u low -t 1500
+                        notify-desktop "inhibitor OF" "Screen can sleep in peace again!" -a "system" -u low -t 3000 -r 9991
                     fi
                 fi
 

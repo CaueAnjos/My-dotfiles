@@ -2,6 +2,7 @@
   inputs,
   lib,
   pkgs,
+  config,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -93,7 +94,109 @@
   };
 
   services = {
-    dunst.enable = true;
+    dunst = {
+      enable = true;
+      iconTheme = {
+        package = pkgs.papirus-icon-theme;
+        name = "Papirus";
+      };
+      settings = {
+        global = {
+          # Layout & Position
+          origin = "top-right";
+          offset = "(4,16)";
+          gap_size = 6;
+          padding = 12;
+          horizontal_padding = 16;
+          text_icon_padding = 12;
+
+          # Geometry
+          width = "(300, 480)";
+          height = "(0,200)";
+          corner_radius = 12;
+          icon_corner_radius = 6;
+
+          # Typography
+          font = "JetBrainsMono Nerd Font 10";
+          format = ''<b>%a</b>  %s\n<small>%b</small>'';
+          markup = "full";
+          word_wrap = true;
+          ellipsize = "middle";
+
+          # Icons
+          enable_recursive_icon_lookup = false;
+          icon_position = "left";
+          min_icon_size = 32;
+          max_icon_size = 48;
+
+          # Behavior
+          show_age_threshold = 60;
+          stack_duplicates = true;
+          hide_duplicate_count = false;
+          show_indicators = true;
+          sort = "urgency_descending";
+          idle_threshold = 120;
+
+          # Wayland / Hyprland
+          layer = "overlay";
+
+          # Frame / Border
+          frame_width = 1;
+          separator_height = 1;
+          separator_color = "frame";
+
+          # Progress bar
+          progress_bar = true;
+          progress_bar_height = 6;
+          progress_bar_frame_width = 0;
+          progress_bar_corner_radius = 3;
+
+          # History
+          history_length = 20;
+          sticky_history = true;
+
+          # Misc
+          browser = "xdg-open";
+          always_run_script = true;
+          ignore_dbusclose = false;
+        };
+
+        urgency_low = {
+          background = "#${config.colorScheme.palette.base01}";
+          foreground = "#${config.colorScheme.palette.base04}";
+          frame_color = "#${config.colorScheme.palette.base02}";
+          highlight = "#${config.colorScheme.palette.base0D}";
+          timeout = 5;
+        };
+
+        urgency_normal = {
+          background = "#${config.colorScheme.palette.base01}";
+          foreground = "#${config.colorScheme.palette.base05}";
+          frame_color = "#${config.colorScheme.palette.base0D}";
+          highlight = "#${config.colorScheme.palette.base0D}";
+          timeout = 8;
+        };
+
+        urgency_critical = {
+          background = "#${config.colorScheme.palette.base01}";
+          foreground = "#${config.colorScheme.palette.base05}";
+          frame_color = "#${config.colorScheme.palette.base08}";
+          highlight = "#${config.colorScheme.palette.base08}";
+          timeout = 0;
+        };
+
+        system = {
+          appname = "system";
+          default_icon = "${./icons/linux.png}";
+        };
+
+        # Rules for specific apps
+        play_sound = {
+          summary = "*";
+          script = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -i message";
+        };
+      };
+    };
     swww.enable = true;
     hypridle = {
       enable = true;
