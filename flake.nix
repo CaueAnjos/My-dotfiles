@@ -2,25 +2,49 @@
   description = "Home Manager configuration of kawid";
 
   inputs = {
-    flake-parts.url = "github:hercules-ci/flake-parts";
+    systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
       url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        systems.follows = "systems";
+      };
     };
-    xremap-flake.url = "github:xremap/nix-flake";
-    elephant.url = "github:abenz1267/elephant";
+    xremap-flake = {
+      url = "github:xremap/nix-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+    elephant = {
+      url = "github:abenz1267/elephant";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
     walker = {
       url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
+      inputs = {
+        elephant.follows = "elephant";
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
     };
-    hyperland.url = "github:hyprwm/Hyprland";
+    hyperland = {
+      url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
     nix-colors.url = "github:misterio77/nix-colors";
-    gruvbox-walls.url = "github:AngelJumbo/gruvbox-wallpapers";
+    gruvbox-walls = {
+      url = "github:AngelJumbo/gruvbox-wallpapers";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -35,7 +59,7 @@
         ./home-manager
       ];
 
-      systems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
+      systems = import inputs.systems;
 
       perSystem = {system, ...}: {
         _module.args.pkgs = import self.inputs.nixpkgs {
