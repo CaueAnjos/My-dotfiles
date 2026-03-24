@@ -13,6 +13,10 @@
         kb_layout = "us,br";
         kb_options = "grp:alt_shift_toggle";
       };
+      general = {
+        gaps_in = 4;
+        gaps_out = 4;
+      };
 
       "$mod" = "SUPER";
       animations = {
