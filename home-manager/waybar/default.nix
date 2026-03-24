@@ -19,11 +19,9 @@
           };
           "network" = {
             family = "ipv4_6";
-            interval = 5;
-            format = "{icon}";
-            format-ethernet = "   {bandwidthUpBits}  {bandwidthDownBits}";
-            format-wifi = "󰖩   {bandwidthUpBits}  {bandwidthDownBits}";
-            format-disconected = "󰖪 ";
+            format-ethernet = "";
+            format-wifi = "󰖩";
+            format-disconected = "󰖪";
           };
           "pulseaudio" = {
             format = "{icon} {volume}%";
