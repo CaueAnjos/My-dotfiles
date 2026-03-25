@@ -19,10 +19,16 @@
           path = "/home/kawid/Documents/obsidianVaults";
           devices = ["phone"];
         };
-        images = {
+        dcim = {
           enable = true;
-          lable = "Images";
+          lable = "DCIM";
           path = "/home/kawid/Documents/Images";
+          devices = ["phone"];
+        };
+        docs = {
+          enable = true;
+          lable = "Docs";
+          path = "/home/kawid/Documents/Docs";
           devices = ["phone"];
         };
       };
