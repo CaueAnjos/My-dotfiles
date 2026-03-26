@@ -110,6 +110,21 @@
             end
           '';
       }
+      {
+        key = "<leader>fk";
+        mode = "n";
+        lua = true;
+        desc = "Find keymaps";
+        action =
+          /*
+          lua
+          */
+          ''
+            function()
+                require("fzf-lua").keymaps()
+            end
+          '';
+      }
     ];
   };
 }
