@@ -46,10 +46,6 @@ in {
               command_git_branch_format = "#[fg=blue] {stdout}";
               command_git_branch_interval = "10";
               command_git_branch_rendermode = "static";
-
-              datetime = "#[fg=#6C7086,bold] {format} ";
-              datetime_format = "%A, %d %b %Y %H:%M";
-              datetime_timezone = "Europe/Berlin";
             };
           };
         }
@@ -58,6 +54,21 @@ in {
     settings = {
       keybinds = {
         unbind._args = ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"];
+        pane = {
+          _children = [
+            {
+              bind = {
+                _args = ["q"];
+                _children = [
+                  {
+                    CloseFocus._args = [];
+                    SwitchToMode._args = ["Normal"];
+                  }
+                ];
+              };
+            }
+          ];
+        };
         shared_except = {
           _args = ["locked"];
           _children = [

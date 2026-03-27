@@ -16,7 +16,6 @@
     enable = true;
     settings.vim = {
       autopairs.nvim-autopairs.enable = true;
-      utility.smart-splits.enable = true;
       binds = {
         whichKey.enable = true;
       };

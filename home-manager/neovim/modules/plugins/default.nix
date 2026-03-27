@@ -6,6 +6,7 @@
     ./mini.nix
     ./smear-cursor.nix
     ./fzflua.nix
+    ./smart-splits.nix
     ./tiny-inline-diagnostic.nix
     ./todo-comments.nix
     ./yazi.nix
