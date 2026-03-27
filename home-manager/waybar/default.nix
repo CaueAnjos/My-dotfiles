@@ -3,11 +3,25 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  inherit (config.colorScheme) palette;
+  hexToRgba = hex: alpha: let
+    h =
+      if builtins.substring 0 1 hex == "#"
+      then builtins.substring 1 (builtins.stringLength hex - 1) hex
+      else hex;
+
+    toInt = c: (builtins.fromTOML "value=0x${c}").value;
+
+    r = toInt (builtins.substring 0 2 h);
+    g = toInt (builtins.substring 2 2 h);
+    b = toInt (builtins.substring 4 2 h);
+  in "rgba(${toString r}, ${toString g}, ${toString b}, ${toString alpha})";
+in {
   programs = {
     waybar = {
       enable = true;
-      style = import ./waybar.nix config.colorScheme.palette;
+      style = import ./waybar.nix palette;
       settings = [
         {
           modules-left = ["custom/nixos" "hyprland/workspaces" "hyprland/window"];
@@ -141,11 +155,7 @@
       enable = true;
       settings = {
         general = {
-          disable_loading_bar = true;
           hide_cursor = true;
-          grace = 0;
-          no_fade_in = false;
-          no_fade_out = false;
           ignore_empty_input = true;
         };
 
@@ -160,21 +170,6 @@
           vibrancy_darkness = 0.0;
         };
 
-        # User avatar circle with glow effect
-        image = {
-          path = "${./icons/hibernating.png}";
-          size = 150;
-          rounding = -1;
-          border_size = 4;
-          border_color = "rgba(187, 154, 247, 1.0)";
-          position = "0, 50";
-          halign = "center";
-          valign = "center";
-          shadow_passes = 3;
-          shadow_size = 8;
-          shadow_color = "rgba(187, 154, 247, 0.5)";
-        };
-
         # Password input field
         input-field = {
           size = "300, 60";
@@ -182,29 +177,29 @@
           dots_size = 0.25;
           dots_spacing = 0.3;
           dots_center = true;
-          outer_color = "rgba(122, 162, 247, 0.3)";
-          inner_color = "rgba(26, 27, 38, 0.9)";
-          font_color = "rgba(192, 202, 245, 1.0)";
+          outer_color = hexToRgba palette.base0E 1.0;
+          inner_color = hexToRgba palette.base00 1.0;
+          font_color = hexToRgba palette.base02 1.0;
           fade_on_empty = false;
-          placeholder_text = ''<span foreground="##7aa2f7">Enter Password...</span>'';
+          placeholder_text = ''<span foreground="##${palette.base04}">Enter Password...</span>'';
           hide_input = false;
           rounding = 12;
-          check_color = "rgba(158, 206, 106, 1.0)";
-          fail_color = "rgba(247, 118, 142, 1.0)";
-          fail_text = ''<span foreground="##f7768e">$FAIL ($ATTEMPTS)</span>'';
+          check_color = hexToRgba palette.base0B 1.0;
+          fail_color = hexToRgba palette.base08 1.0;
+          fail_text = ''<span foreground="##${palette.base08}">Wrong Password</span>'';
           capslock_color = "rgba(224, 175, 104, 1.0)";
           position = "0, -150";
           halign = "center";
           valign = "center";
           shadow_passes = 2;
           shadow_size = 4;
-          shadow_color = "rgba(0, 0, 0, 0.4)";
+          shadow_color = hexToRgba palette.base00 0.4;
         };
 
         label = [
           {
             text = ''cmd[update:1000] echo "$(date +"%H:%M")"'';
-            color = "rgba(122, 162, 247, 1.0)";
+            color = hexToRgba palette.base0C 1.0;
             font_size = 120;
             font_family = "JetBrains Mono Nerd Font";
             position = "0, 300";
@@ -212,11 +207,11 @@
             valign = "center";
             shadow_passes = 2;
             shadow_size = 5;
-            shadow_color = "rgba(0, 0, 0, 0.5)";
+            shadow_color = hexToRgba palette.base00 0.4;
           }
           {
             text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
-            color = "rgba(125, 207, 255, 0.8)";
+            color = hexToRgba palette.base0D 1.0;
             font_size = 24;
             font_family = "JetBrains Mono Nerd Font";
             position = "0, 180";
@@ -225,7 +220,7 @@
           }
           {
             text = "Locked";
-            color = "rgba(125, 207, 255, 0.6)";
+            color = hexToRgba palette.base0D 0.6;
             font_size = 16;
             font_family = "JetBrains Mono Nerd Font";
             position = "0, -230";
@@ -233,26 +228,8 @@
             valign = "center";
           }
           {
-            text = ''cmd[update:60000] echo " $(uptime -p | sed 's/up //')"'';
-            color = "rgba(192, 202, 245, 0.6)";
-            font_size = 12;
-            font_family = "JetBrains Mono Nerd Font";
-            position = "20, -20";
-            halign = "left";
-            valign = "top";
-          }
-          {
-            text = ''cmd[update:1000] echo "$(hyprctl devices -j | jq -r '.keyboards[] | select(.main) | .active_keymap' | head -n1 || echo 'US')"'';
-            color = "rgba(224, 175, 104, 0.8)";
-            font_size = 12;
-            font_family = "JetBrains Mono Nerd Font";
-            position = "-20, 30";
-            halign = "right";
-            valign = "bottom";
-          }
-          {
             text = "Hi, $USER";
-            color = "rgba(192, 202, 245, 1.0)";
+            color = hexToRgba palette.base0E 1.0;
             font_size = 28;
             font_family = "JetBrains Mono Nerd Font";
             position = "0, -80";
