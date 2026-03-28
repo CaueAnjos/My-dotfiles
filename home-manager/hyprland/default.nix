@@ -72,7 +72,13 @@
           "$mod SHIFT, k, movewindow, u"
           "$mod SHIFT, l, movewindow, r"
 
+          "$mod ALT, h, resizeactive, -15% 0%"
+          "$mod ALT, j, resizeactive, 0% 15%"
+          "$mod ALT, k, resizeactive, 0% -15%"
+          "$mod ALT, l, resizeactive, 15% 0%"
+
           "$mod, d, killactive"
+          "$mod, f, fullscreen"
         ]
         ++ (builtins.concatLists (builtins.genList (
             i: let
