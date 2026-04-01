@@ -9,6 +9,11 @@
     package = inputs.hyperland.packages.${pkgs.system}.hyprland;
     enable = true;
     settings = {
+      exec-once = [
+        (lib.getExe (import
+          ./extensions-resize-script.nix
+          pkgs))
+      ];
       input = {
         kb_layout = "us,br";
         kb_options = "grp:alt_shift_toggle";
