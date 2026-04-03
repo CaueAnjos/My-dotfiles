@@ -3,6 +3,7 @@
     ./git
     ./ghostty
     ./obsidian
+    ./opencode
     ./xremap
     ./syncthing
     ./shell

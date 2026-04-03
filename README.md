@@ -1,128 +1,128 @@
-# My-dotfiles 🏠✨
+# My Dotfiles 🏠
 
-Welcome to my digital home! This repository contains my carefully curated
-configuration files - the secret sauce that makes my terminal feel like a cozy
-living room instead of a sterile command prompt.
+NixOS and Home Manager configuration using flakes, flake-parts, and nvf (Neovim Framework).
 
 ## What's Inside? 📦
 
-Think of this as my "digital DNA" - all the configs, tweaks, and customizations
-that make my development environment uniquely mine. From shell aliases that save
-me 0.3 seconds per command (which totally adds up!) to color schemes that don't
-burn my retinas during 3 AM coding sessions.
+### Desktop Environment
+- **Hyprland** - Wayland compositor with smooth animations
+- **Waybar** - Customizable status bar
+- **Ghostty** - Fast, GPU-accelerated terminal
 
-## Getting Started 🚀
+### Development Tools
+- **Neovim** (via nvf) - Fully configured with:
+  - LSP support for language intelligence
+  - Git integration (gitsigns, fugitive)
+  - Fuzzy finding (telescope)
+  - Snippets and completion
+  - Multiple status bars and tabs
+- **Zellij** - Terminal multiplexer
+- **Yazi** - Fast terminal file manager
 
-Ready to transform your bland terminal into a productivity powerhouse? Let's get
-this party started!
+### CLI Utilities
+- **Eza** - Modern ls replacement
+- **Bat** - Better cat with syntax highlighting
+- **FZF** - Fuzzy finder
+- **Btop** - Modern system monitor
+- **Fastfetch** - Fast system info display
+- **Walker** - Application launcher
+- **XRemap** - Key remapping for Wayland
+
+### Additional Tools
+- **Syncthing** - File synchronization
+- **Obsidian** - Note-taking app
+- **Nix-colors** - Consistent theming across applications
+
+### Shell & Configs
+- Shell aliases and functions
+- Git configuration
+- Devtools preferences
+- NixOS system configuration (boot, networking, keyboard, display, virtualization)
+
+## Installation 🚀
 
 ### Prerequisites
 
-First things first - you'll need Nix installed. If you don't have it yet, head
-over to [nixos.org](https://nixos.org/download.html) and follow their
-installation guide, or use the
-[Determinate Systems installer](https://docs.determinate.systems/), which is my
-preferred way. Don't worry, it's easier than assembling IKEA furniture.
-
-### Installation Steps
-
-Once you've got Nix ready to rock, fire up your terminal and run these magical
-spells, little wizard 🧙‍♂️:
+Install Nix with flakes support:
 
 ```shell
-# Summon git from the Nix dimension
-nix shell nixpkgs#git
+# Using the Determinate Systems installer (recommended)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh
 
-# Authenticate with GitHub (because we're not savages)
-nix run nixpkgs#gh -- auth login
-
-# Clone this masterpiece to your local machine
-nix run nixpkgs#gh -- repo clone CaueAnjos/My-dotfiles
-
-# Apply the configs and watch the magic happen ✨
-nix run home-manager -- switch --flake My-dotfiles#kawid
-
-# Exit to let the changes take effect
-exit
+# Or using the official Nix installer
+sh <(curl -L https://nixos.org/nix/install)
 ```
 
-### Post-Installation Polish 🎨
-
-Now for the finishing touches that'll make your shell sing:
-
-#### Make Zsh Your Default Shell
-
-Because life's too short for bash (just kidding, bash lovers - you do you!):
-
-1. Add the Nix-managed zsh to your system's approved shells list:
+Enable flakes and nix-command experimental feature (required for flakes):
 
 ```shell
-echo "/home/kawid/.nix-profile/bin/zsh" | sudo tee -a /etc/shells
+mkdir -p ~/.config/nix
+echo 'experimental-features = nix-command flakes' > ~/.config/nix/nix.conf
 ```
 
-1. Set zsh as your default shell:
+### Clone & Apply
 
 ```shell
-chsh -s /home/kawid/.nix-profile/bin/zsh
+# Clone this repository
+git clone https://github.com/kawid/My-dotfiles.git ~/dotfiles
+
+# Apply Home Manager configuration
+nix run home-manager -- switch --flake ~/dotfiles#kawid
+
+# Restart your shell or log out/in
 ```
 
-1. Log out and back in to see the magic happen! 🎭
-
-#### WSL2 Performance Boost 🏎️
-
-If you're running this on Windows WSL2 (brave soul!), here's a pro tip to make
-your terminal highlighting faster than a caffeinated cheetah:
-
-Add this snippet to `/etc/wsl.conf`:
-
-```toml
-[interop]
-appendWindowsPath = false
-```
-
-**Why does this help?** WSL2 normally inherits Windows' PATH, which can make
-command lookups slower than a dial-up modem. This setting tells WSL2 to focus on
-its own PATH, dramatically improving terminal responsiveness.
-
-After adding this, restart your WSL2 instance:
+To update in the future:
 
 ```shell
-# From Windows PowerShell/CMD
-wsl --shutdown
-# Then start WSL2 again
+nix run home-manager -- switch --flake ~/dotfiles#kawid
 ```
 
-## Troubleshooting 🔧
+## Structure 📁
 
-### "Command not found" errors
+```
+.
+├── flake.nix                 # Flake configuration
+├── flake-parts/              # Flake-parts modules
+├── nixos/                    # NixOS system configuration
+│   ├── configuration.nix
+│   ├── boot.nix
+│   ├── services.nix
+│   ├── users.nix
+│   ├── network.nix
+│   ├── keyboard.nix
+│   ├── display-manager.nix
+│   ├── hardware-configuration.nix
+│   └── virtualisation.nix
+└── home-manager/             # User configuration
+    ├── home.nix              # Main home-manager config
+    ├── hyprland/
+    ├── neovim/               # nvf-based Neovim config
+    ├── waybar/
+    ├── walker/
+    ├── xremap/
+    ├── zellij/
+    ├── yazi/
+    ├── ghostty/
+    ├── eza/
+    ├── bat/
+    ├── fastfetch/
+    ├── fzf/
+    ├── btop/
+    ├── syncthing/
+    ├── obsidian/
+    ├── shell/
+    ├── git/
+    └── colorscheme.nix
+```
 
-- Make sure you've exited and re-entered your shell after installation
-- Check that `/home/kawid/.nix-profile/bin` is in your PATH
+## Key Features ⭐
 
-### WSL2 still feeling sluggish?
-
-- Double-check that `/etc/wsl.conf` change and restart WSL2
-- Consider using Windows Terminal for better performance
-
-### Something's broken?
-
-- File an issue! I promise I don't bite (much)
-- Include your OS, shell version, and what you were trying to do
-
-## What Makes These Dotfiles Special? ⭐
-
-- **Nix-powered**: Reproducible configurations that work the same everywhere
-- **Performance-optimized**: Because waiting for your terminal is so last decade
-- **Carefully curated**: Years of tweaking distilled into pure productivity gold
-- **WSL2-friendly**: Plays nice with Windows Subsystem for Linux
-
-## Contributing 🤝
-
-Found a bug? Have a suggestion? Want to add support for your favorite tool? Pull
-requests are welcome! Just remember: with great power comes great responsibility
-(and decent commit messages).
+- **Reproducible** - Nix guarantees the same environment everywhere
+- **Modular** - flake-parts for clean, composable configuration
+- **Wayland-native** - Hyprland compositor with modern Wayland tools
+- **Optimized** - Fastfetch, btop, and efficient tooling
 
 ---
 
-_Happy configuring! May your terminal be fast and your syntax highlighting be
-colorful._ 🌈
+_Happy coding!_ 💻
