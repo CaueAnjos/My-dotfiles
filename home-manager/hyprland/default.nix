@@ -21,6 +21,9 @@
       general = {
         gaps_in = 4;
         gaps_out = 4;
+        monitor = [
+          "DP-2, 1920x1080@144, 0x0, 1"
+        ];
       };
 
       "$mod" = "SUPER";
