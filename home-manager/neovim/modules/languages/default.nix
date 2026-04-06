@@ -11,8 +11,6 @@
       };
     };
 
-    treesitter.indent.enable = false;
-
     languages = {
       enableFormat = true;
       enableTreesitter = true;
