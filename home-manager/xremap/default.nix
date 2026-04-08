@@ -4,6 +4,8 @@
   pkgs,
   ...
 }: let
+  wallpapers = inputs.gruvbox-walls.packages.${pkgs.system}.default;
+
   pike-wallpaper = pkgs.writeShellScriptBin "pike-wallpaper" ''
     WALLPAPER=$(find "${inputs.gruvbox-walls.packages.${pkgs.system}.default}" -type f | shuf -n 1)
     awww img "$WALLPAPER" \
@@ -11,6 +13,11 @@
     --transition-duration 1
   '';
 in {
+  home.file."wallpapers" = {
+    source = wallpapers;
+    recursive = true;
+  };
+
   imports = [
     inputs.xremap-flake.homeManagerModules.default
   ];
