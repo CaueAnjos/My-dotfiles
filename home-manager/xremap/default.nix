@@ -7,10 +7,17 @@
   wallpapers = inputs.gruvbox-walls.packages.${pkgs.system}.default;
 
   pike-wallpaper = pkgs.writeShellScriptBin "pike-wallpaper" ''
-    WALLPAPER=$(find "${inputs.gruvbox-walls.packages.${pkgs.system}.default}" -type f | shuf -n 1)
-    awww img "$WALLPAPER" \
-    --transition-type any \
-    --transition-duration 1
+    # display only filenames in walker (grid layout handled in walker config)
+    NAME=$(find "$HOME/wallpapers" -printf "%f\n" | sort -u | walker --dmenu)
+    [ -z "$NAME" ] && exit 0
+
+    # resolve selected filename back to full path
+    WALL=$(find "$HOME/wallpapers" -name "$NAME" | head -n1)
+    [ -z "$WALL" ] && exit 0
+
+    awww img "$WALL" \
+      --transition-type any \
+      --transition-duration 1
   '';
 in {
   home.file."wallpapers" = {
