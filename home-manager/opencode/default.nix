@@ -3,7 +3,7 @@
     enable = true;
 
     settings = {
-      autoupdate = true;
+      autoupdate = false;
       snapshot = true;
 
       agent = {
