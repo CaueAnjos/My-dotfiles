@@ -29,6 +29,12 @@
     nix-ld.enable = true;
     firefox.enable = true;
     hyprland.enable = true;
+
+    # HACK: this shouldn't be here at all
+    steam = {
+      enable = true;
+      extest.enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
