@@ -1,15 +1,10 @@
-{
+{pkgs, ...}: {
   programs.nvf.settings.vim = {
-    formatter.conform-nvim = {
-      enable = true;
-      setupOpts = {
-        formatters_by_ft = {
-          cs = [
-            "csharpier"
-          ];
-        };
-      };
-    };
+    lsp.presets.harper.enable = true;
+
+    treesitter.grammars = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+      objdump
+    ];
 
     languages = {
       enableFormat = true;
@@ -17,7 +12,13 @@
       enableExtraDiagnostics = true;
       enableDAP = true;
 
-      csharp.enable = true;
+      csharp = {
+        enable = true;
+        extensions.csharpls-extended-lsp-nvim.enable = true;
+        format.type = ["csharpier"];
+      };
+
+      clang.enable = true;
       html.enable = true;
       css.enable = true;
       ts.enable = true;
