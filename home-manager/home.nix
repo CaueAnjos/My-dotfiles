@@ -1,25 +1,25 @@
 {
   imports = [
-    ./git
-    ./ghostty
-    ./obsidian
-    ./opencode
-    ./xremap
-    ./syncthing
-    ./shell
-    ./zellij
     ./bat
-    ./eza
-    ./fzf
-    ./yazi
-    ./fastfetch
-    ./hyprland
-    ./waybar
-    ./walker
-    ./neovim
-    ./devtools.nix
     ./btop
     ./colorscheme.nix
+    ./devtools.nix
+    ./eza
+    ./fastfetch
+    ./fzf
+    ./ghostty
+    ./git
+    ./hyprland
+    ./neovim
+    ./obsidian
+    ./opencode
+    ./shell
+    ./syncthing
+    ./walker
+    ./waybar
+    ./xremap
+    ./yazi
+    ./zellij
   ];
 
   home = rec {
