@@ -11,6 +11,7 @@
     ./git
     ./hyprland
     ./neovim
+    ./obs-studio
     ./obsidian
     ./opencode
     ./shell
