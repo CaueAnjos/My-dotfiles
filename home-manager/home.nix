@@ -1,5 +1,6 @@
 {
   imports = [
+    ./basic.nix
     ./bat
     ./btop
     ./colorscheme.nix

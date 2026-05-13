@@ -1,18 +1,9 @@
 {
   inputs,
-  pkgs,
   config,
   ...
 }: {
   imports = [inputs.walker.homeManagerModules.default];
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      package = pkgs.adwaita-icon-theme;
-      name = "Adwaita";
-    };
-  };
 
   programs.walker = {
     enable = true;
