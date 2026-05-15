@@ -67,13 +67,6 @@ in {
       };
     };
 
-    theme = {
-      enable = true;
-      name = "base16";
-      base16-colors = config.colorScheme.palette;
-      transparent = true;
-    };
-
     statusline.lualine = {
       enable = true;
       activeSection.a = [

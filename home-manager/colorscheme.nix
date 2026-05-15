@@ -1,11 +1,10 @@
 {
   pkgs,
-  config,
   inputs,
   ...
 }: let
   inherit (inputs) nix-colors;
-  theme = "gruvbox-dark-hard";
+  theme = import inputs.theme;
 
   defaultCursorTheme = {
     name = "Bibata-Modern-Ice";
@@ -19,23 +18,9 @@
         enable = true;
         colorScheme = "dark";
         cursorTheme = defaultCursorTheme;
-        theme = {
-          name = "Gruvbox-Dark-Compact-Soft";
-          package = pkgs.gruvbox-gtk-theme.override {
-            colorVariants = ["dark"];
-            sizeVariants = ["compact"];
-            themeVariants = ["default"];
-            tweakVariants = ["macos" "soft"];
-            iconVariants = [];
-          };
-        };
         iconTheme = {
           name = "Gruvbox-Plus-Dark";
           package = pkgs.gruvbox-plus-icons;
-        };
-        font = {
-          name = "Jetbrains Mono";
-          package = pkgs.nerd-fonts.jetbrains-mono;
         };
       };
     };
@@ -47,12 +32,6 @@ in {
   ];
   colorScheme = nix-colors.colorSchemes.${theme};
   inherit (currentTheme) gtk;
-
-  xdg.configFile = {
-    "gtk-4.0/assets".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/assets";
-    "gtk-4.0/gtk.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk.css";
-    "gtk-4.0/gtk-dark.css".source = "${config.gtk.theme.package}/share/themes/${config.gtk.theme.name}/gtk-4.0/gtk-dark.css";
-  };
 
   home = {
     pointerCursor = {

@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  config,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -60,7 +59,6 @@
           enabled = true;
           range = 30;
           render_power = 3;
-          color = "0x66000000";
         };
       };
       bind =
@@ -98,10 +96,6 @@
   services = {
     dunst = {
       enable = true;
-      iconTheme = {
-        package = pkgs.papirus-icon-theme;
-        name = "Papirus";
-      };
       settings = {
         global = {
           # Layout & Position
@@ -119,7 +113,6 @@
           icon_corner_radius = 6;
 
           # Typography
-          font = "JetBrainsMono Nerd Font 10";
           format = ''<b>%a</b>  %s\n<small>%b</small>'';
           markup = "full";
           word_wrap = true;
@@ -145,7 +138,6 @@
           # Frame / Border
           frame_width = 1;
           separator_height = 1;
-          separator_color = "frame";
 
           # Progress bar
           progress_bar = true;
@@ -161,30 +153,6 @@
           browser = "xdg-open";
           always_run_script = true;
           ignore_dbusclose = false;
-        };
-
-        urgency_low = {
-          background = "#${config.colorScheme.palette.base01}";
-          foreground = "#${config.colorScheme.palette.base04}";
-          frame_color = "#${config.colorScheme.palette.base02}";
-          highlight = "#${config.colorScheme.palette.base0D}";
-          timeout = 5;
-        };
-
-        urgency_normal = {
-          background = "#${config.colorScheme.palette.base01}";
-          foreground = "#${config.colorScheme.palette.base05}";
-          frame_color = "#${config.colorScheme.palette.base0D}";
-          highlight = "#${config.colorScheme.palette.base0D}";
-          timeout = 8;
-        };
-
-        urgency_critical = {
-          background = "#${config.colorScheme.palette.base01}";
-          foreground = "#${config.colorScheme.palette.base05}";
-          frame_color = "#${config.colorScheme.palette.base08}";
-          highlight = "#${config.colorScheme.palette.base08}";
-          timeout = 0;
         };
 
         system = {

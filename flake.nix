@@ -24,7 +24,15 @@
     };
     walker.url = "github:abenz1267/walker";
     hyperland.url = "github:hyprwm/Hyprland";
+    theme = {
+      url = "path:./theme.nix";
+      flake = false;
+    };
     nix-colors.url = "github:misterio77/nix-colors";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     gruvbox-walls = {
       url = "github:AngelJumbo/gruvbox-wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";

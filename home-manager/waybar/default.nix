@@ -5,18 +5,6 @@
   ...
 }: let
   inherit (config.colorScheme) palette;
-  hexToRgba = hex: alpha: let
-    h =
-      if builtins.substring 0 1 hex == "#"
-      then builtins.substring 1 (builtins.stringLength hex - 1) hex
-      else hex;
-
-    toInt = c: (builtins.fromTOML "value=0x${c}").value;
-
-    r = toInt (builtins.substring 0 2 h);
-    g = toInt (builtins.substring 2 2 h);
-    b = toInt (builtins.substring 4 2 h);
-  in "rgba(${toString r}, ${toString g}, ${toString b}, ${toString alpha})";
 in {
   programs = {
     waybar = {
@@ -181,61 +169,45 @@ in {
           dots_size = 0.25;
           dots_spacing = 0.3;
           dots_center = true;
-          outer_color = hexToRgba palette.base0E 1.0;
-          inner_color = hexToRgba palette.base00 1.0;
-          font_color = hexToRgba palette.base02 1.0;
           fade_on_empty = false;
           placeholder_text = ''<span foreground="##${palette.base04}">Enter Password...</span>'';
           hide_input = false;
           rounding = 12;
-          check_color = hexToRgba palette.base0B 1.0;
-          fail_color = hexToRgba palette.base08 1.0;
           fail_text = ''<span foreground="##${palette.base08}">Wrong Password</span>'';
-          capslock_color = "rgba(224, 175, 104, 1.0)";
           position = "0, -150";
           halign = "center";
           valign = "center";
           shadow_passes = 2;
           shadow_size = 4;
-          shadow_color = hexToRgba palette.base00 0.4;
         };
 
         label = [
           {
             text = ''cmd[update:1000] echo "$(date +"%H:%M")"'';
-            color = hexToRgba palette.base0C 1.0;
             font_size = 120;
-            font_family = "JetBrains Mono Nerd Font";
             position = "0, 300";
             halign = "center";
             valign = "center";
             shadow_passes = 2;
             shadow_size = 5;
-            shadow_color = hexToRgba palette.base00 0.4;
           }
           {
             text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
-            color = hexToRgba palette.base0D 1.0;
             font_size = 24;
-            font_family = "JetBrains Mono Nerd Font";
             position = "0, 180";
             halign = "center";
             valign = "center";
           }
           {
             text = "Locked";
-            color = hexToRgba palette.base0D 0.6;
             font_size = 16;
-            font_family = "JetBrains Mono Nerd Font";
             position = "0, -230";
             halign = "center";
             valign = "center";
           }
           {
             text = "Hi, $USER";
-            color = hexToRgba palette.base0E 1.0;
             font_size = 28;
-            font_family = "JetBrains Mono Nerd Font";
             position = "0, -80";
             halign = "center";
             valign = "center";

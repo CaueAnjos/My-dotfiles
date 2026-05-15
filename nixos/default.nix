@@ -18,7 +18,10 @@ in {
         };
       }
 
+      inputs.stylix.nixosModules.stylix
+
       ./users.nix
+      ./stylix.nix
       ./keyboard.nix
       ./boot.nix
       ./network.nix
