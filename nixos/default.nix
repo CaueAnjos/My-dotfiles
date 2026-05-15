@@ -9,10 +9,13 @@ in {
     modules = [
       inputs.home-manager.nixosModules.home-manager
       {
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.kawid = ./../home-manager/home.nix;
-        home-manager.extraSpecialArgs = {inherit inputs;};
+        home-manager = {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.kawid = ./../home-manager/home.nix;
+          extraSpecialArgs = {inherit inputs;};
+          backupFileExtension = "backup";
+        };
       }
 
       ./users.nix
