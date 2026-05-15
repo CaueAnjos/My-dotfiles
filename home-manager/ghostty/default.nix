@@ -12,6 +12,11 @@ in {
 
   fonts.fontconfig.enable = true;
 
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = ["ghostty" "+new-window"];
+  };
+
   programs.ghostty = {
     enable = true;
     settings = {
