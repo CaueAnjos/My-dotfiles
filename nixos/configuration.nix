@@ -23,7 +23,8 @@
   nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "America/Sao_Paulo";
-  i18n.defaultLocale = "pt_BR.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = ["pt_BR.UTF-8/UTF-8" "en_US.UTF-8/UTF-8"];
 
   programs = {
     nix-ld.enable = true;
