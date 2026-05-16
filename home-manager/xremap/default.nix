@@ -48,7 +48,7 @@ in {
       {
         name = "Launch";
         remap = {
-          "Super-T".launch = [(lib.getExe pkgs.ghostty) "+new-window"];
+          "Super-T".launch = ["xdg-terminal-exec"];
           "Super-B".launch = [(lib.getExe pkgs.firefox)];
           "Super-Space".launch = [(lib.getExe pkgs.walker)];
           "Alt-P".launch = [(lib.getExe pike-wallpaper)];

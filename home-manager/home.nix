@@ -8,7 +8,6 @@
     ./eza
     ./fastfetch
     ./fzf
-    ./ghostty
     ./git
     ./hyprland
     ./neovim
@@ -17,6 +16,7 @@
     ./opencode
     ./shell
     ./syncthing
+    ./terminal
     ./walker
     ./waybar
     ./xremap
