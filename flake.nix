@@ -17,12 +17,12 @@
         systems.follows = "systems";
       };
     };
+    noctalia.url = "github:noctalia-dev/noctalia-shell";
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-    walker.url = "github:abenz1267/walker";
     hyperland.url = "github:hyprwm/Hyprland";
     theme = {
       url = "path:./theme.nix";

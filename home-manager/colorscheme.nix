@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: let
   inherit (inputs) nix-colors;
@@ -32,6 +33,8 @@ in {
   ];
   colorScheme = nix-colors.colorSchemes.${theme};
   inherit (currentTheme) gtk;
+
+  qt.platformTheme.name = lib.mkForce "gtk3";
 
   home = {
     pointerCursor = {

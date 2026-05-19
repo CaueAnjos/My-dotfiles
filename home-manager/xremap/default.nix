@@ -3,28 +3,7 @@
   lib,
   pkgs,
   ...
-}: let
-  wallpapers = inputs.gruvbox-walls.packages.${pkgs.system}.default;
-
-  pike-wallpaper = pkgs.writeShellScriptBin "pike-wallpaper" ''
-    # display only filenames in walker (grid layout handled in walker config)
-    NAME=$(find "$HOME/wallpapers" -printf "%f\n" | sort -u | walker --dmenu)
-    [ -z "$NAME" ] && exit 0
-
-    # resolve selected filename back to full path
-    WALL=$(find "$HOME/wallpapers" -name "$NAME" | head -n1)
-    [ -z "$WALL" ] && exit 0
-
-    awww img "$WALL" \
-      --transition-type any \
-      --transition-duration 1
-  '';
-in {
-  home.file."wallpapers" = {
-    source = wallpapers;
-    recursive = true;
-  };
-
+}: {
   imports = [
     inputs.xremap-flake.homeManagerModules.default
   ];
@@ -50,8 +29,7 @@ in {
         remap = {
           "Super-T".launch = ["xdg-terminal-exec"];
           "Super-B".launch = [(lib.getExe pkgs.firefox)];
-          "Super-Space".launch = [(lib.getExe pkgs.walker)];
-          "Alt-P".launch = [(lib.getExe pike-wallpaper)];
+          "Super-Space".launch = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
         };
       }
       {

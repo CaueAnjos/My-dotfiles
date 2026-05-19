@@ -11,14 +11,13 @@
     ./git
     ./hyprland
     ./neovim
+    ./noctalia
     ./obs-studio
     ./obsidian
     ./opencode
     ./shell
     ./syncthing
     ./terminal
-    ./walker
-    ./waybar
     ./xremap
     ./yazi
     ./zellij
