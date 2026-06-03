@@ -25,6 +25,7 @@
       go.enable = true;
       nix.enable = true;
       lua.enable = true;
+      tex.enable = true;
 
       markdown.enable = true;
       bash.enable = true;
