@@ -21,7 +21,7 @@
       clang.enable = true;
       html.enable = true;
       css.enable = true;
-      ts.enable = true;
+      typescript.enable = true;
       go.enable = true;
       nix.enable = true;
       lua.enable = true;
