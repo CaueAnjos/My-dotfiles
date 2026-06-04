@@ -38,11 +38,25 @@
 
         blocking = {
           denylists = {
-            ads = ["https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"];
+            ads = [
+              "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+              "https://blocklistproject.github.io/Lists/ads.txt"
+            ];
             adult = ["https://blocklistproject.github.io/Lists/porn.txt"];
+            malware = [
+              "https://blocklistproject.github.io/Lists/malware.txt"
+              "https://blocklistproject.github.io/Lists/ransomware.txt"
+              "https://blocklistproject.github.io/Lists/piracy.txt"
+              "https://blocklistproject.github.io/Lists/redirect.txt"
+              "https://blocklistproject.github.io/Lists/fraud.txt"
+              "https://blocklistproject.github.io/Lists/basic.txt"
+            ];
+            phishing = [
+              "https://blocklistproject.github.io/Lists/phishing.txt"
+            ];
           };
           clientGroupsBlock = {
-            default = ["ads" "adult"];
+            default = ["ads" "adult" "malware" "phishing"];
           };
         };
 
