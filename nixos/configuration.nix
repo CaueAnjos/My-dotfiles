@@ -15,6 +15,7 @@
     optimise.automatic = true;
     gc = {
       automatic = true;
+      dates = "weekly";
       options = "-d";
     };
   };
