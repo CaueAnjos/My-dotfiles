@@ -42,6 +42,5 @@ in {
       hyprcursor.enable = true;
       inherit (currentTheme.gtk.cursorTheme) package name size;
     };
-    language.base = "en";
   };
 }
