@@ -15,6 +15,7 @@
     ./obs-studio
     ./obsidian
     ./opencode
+    ./research-tools
     ./shell
     ./syncthing
     ./terminal
