@@ -13,6 +13,9 @@
 
   nix = {
     package = pkgs.lixPackageSets.stable.lix;
+    extraOptions = ''
+      !include /etc/nix/nix-access-tokens
+    '';
     settings = {
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["@wheel"];
