@@ -24,6 +24,4 @@
       shell = lib.getExe pkgs.fish;
     };
   };
-
-  programs.zsh.enable = true;
 }
