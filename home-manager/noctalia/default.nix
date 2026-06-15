@@ -15,8 +15,8 @@ in {
     recursive = true;
   };
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
-    settings = lib.mkForce (builtins.fromJSON (builtins.readFile ./noctalia.json));
+    settings = lib.mkForce (builtins.fromTOML (builtins.readFile ./noctalia.toml));
   };
 }

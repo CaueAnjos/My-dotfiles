@@ -29,7 +29,7 @@
         remap = {
           "Super-T".launch = ["xdg-terminal-exec"];
           "Super-B".launch = [(lib.getExe pkgs.firefox)];
-          "Super-Space".launch = ["noctalia-shell" "ipc" "call" "launcher" "toggle"];
+          "Super-Space".launch = ["noctalia" "msg" "panel-toggle" "launcher"];
         };
       }
       {
