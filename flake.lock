@@ -898,7 +898,6 @@
         "nvf": "nvf",
         "stylix": "stylix",
         "systems": "systems_4",
-        "theme": "theme",
         "xremap-flake": "xremap-flake"
       }
     },
@@ -994,18 +993,6 @@
         "repo": "default-linux",
         "type": "github"
       }
-    },
-    "theme": {
-      "flake": false,
-      "locked": {
-        "path": "./theme.nix",
-        "type": "path"
-      },
-      "original": {
-        "path": "./theme.nix",
-        "type": "path"
-      },
-      "parent": []
     },
     "tinted-kitty": {
       "flake": false,

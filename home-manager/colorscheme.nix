@@ -1,11 +1,11 @@
 {
   pkgs,
-  inputs,
   lib,
+  inputs,
   ...
 }: let
   inherit (inputs) nix-colors;
-  theme = import inputs.theme;
+  theme = import ../theme.nix;
 
   defaultCursorTheme = {
     name = "Bibata-Modern-Ice";

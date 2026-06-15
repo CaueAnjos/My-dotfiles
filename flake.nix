@@ -24,10 +24,6 @@
       inputs.flake-parts.follows = "flake-parts";
     };
     hyperland.url = "github:hyprwm/Hyprland";
-    theme = {
-      url = "path:./theme.nix";
-      flake = false;
-    };
     nix-colors.url = "github:misterio77/nix-colors";
     stylix = {
       url = "github:nix-community/stylix";

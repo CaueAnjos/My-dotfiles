@@ -1,9 +1,5 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: let
-  theme = import inputs.theme;
+{pkgs, ...}: let
+  theme = import ../theme.nix;
 in {
   stylix = {
     enable = true;
