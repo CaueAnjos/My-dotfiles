@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   services.syncthing = {
     enable = true;
     settings = {
@@ -16,19 +16,19 @@
         obsidianVaults = {
           enable = true;
           lable = "Obsidain Vaults";
-          path = "/home/kawid/Documents/obsidianVaults";
+          path = "${config.home.homeDirectory}/Documents/obsidianVaults";
           devices = ["phone"];
         };
         dcim = {
           enable = true;
           lable = "DCIM";
-          path = "/home/kawid/Documents/Images";
+          path = "${config.home.homeDirectory}/Documents/Images";
           devices = ["phone"];
         };
         docs = {
           enable = true;
           lable = "Docs";
-          path = "/home/kawid/Documents/Docs";
+          path = "${config.home.homeDirectory}/Documents/Docs";
           devices = ["phone"];
         };
       };

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     super-productivity
   ];
@@ -9,7 +13,7 @@
         tasks = {
           enable = true;
           lable = "Tasks";
-          path = "/home/kawid/Documents/Tasks";
+          path = "${config.home.homeDirectory}/Documents/Tasks";
           devices = ["phone"];
         };
       };

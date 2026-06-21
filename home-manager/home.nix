@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   imports = [
     ./basic.nix
     ./bat
@@ -25,9 +25,9 @@
     ./zellij
   ];
 
-  home = rec {
+  home = {
     username = "kawid";
-    homeDirectory = "/home/${username}";
+    homeDirectory = "/home/${config.home.username}";
 
     stateVersion = "26.05";
   };
