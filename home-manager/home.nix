@@ -5,6 +5,7 @@
     ./btop
     ./colorscheme.nix
     ./devtools.nix
+    ./documents
     ./eza
     ./fastfetch
     ./fzf
