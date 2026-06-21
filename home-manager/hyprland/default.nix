@@ -163,7 +163,8 @@ in {
       in
         [
           (mkBind "SUPER + ALT" "hl.dsp.window.resize()")
-          (mkBind "SUPER + d" "hl.dsp.window.kill()")
+          (mkBind "SUPER + d" "hl.dsp.window.close()")
+          (mkBind "SUPER + q" "hl.dsp.window.kill()")
           (mkBind "SUPER + f" "hl.dsp.window.fullscreen({ action = 'toggle', mode = 'maximized' })")
         ]
         ++ (mkVimDirectionalBind "SUPER" "hl.dsp.focus")
