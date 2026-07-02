@@ -7,9 +7,30 @@
       snapshot = true;
 
       agent = {
+        creative = {
+          description = "Generates creative solutions";
+          mode = "primary";
+          prompt = ''
+            You are a creative problem solver. Do brainstorms and propose your top solutions.
+
+            Consider:
+            - project structure
+            - project restrictions
+
+            Never modify code.
+          '';
+          temperature = 0.7;
+          tools = {
+            bash = true;
+            edit = false;
+            write = false;
+          };
+        };
+
         docs = {
           description = "Writes and maintains project documentation";
           mode = "subagent";
+          model = "anthropic/claude-haiku-4-5";
           prompt = ''
             You are a technical writer. Create clear, comprehensive documentation.
 
@@ -32,6 +53,7 @@
         review = {
           description = "Reviews code for quality, best practices, and potential issues";
           mode = "subagent";
+          model = "anthropic/claude-haiku-4-5";
           prompt = ''
             You are a code reviewer. Provide constructive feedback on code quality.
 
@@ -55,6 +77,7 @@
         committer = {
           description = "Creates conventional commits from git changes";
           mode = "subagent";
+          model = "anthropic/claude-haiku-4-5";
           prompt = ''
             You are a commit message expert specializing in conventional commits.
 
@@ -75,7 +98,6 @@
 
             Always propose commits with meaningful, atomic changes.
           '';
-          small_model = true;
           tools = {
             bash = true;
             edit = false;
