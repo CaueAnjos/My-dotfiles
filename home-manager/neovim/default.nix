@@ -12,6 +12,8 @@
     ./modules/theme.nix
   ];
 
+  home.sessionVariables.EDITOR = "vim";
+
   programs.nvf = {
     enable = true;
     settings.vim = {
