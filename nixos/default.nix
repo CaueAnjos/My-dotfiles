@@ -29,6 +29,7 @@ in {
       ./configuration.nix
       ./hardware-configuration.nix
       ./display-manager.nix
+      ./virtualisation.nix
     ];
   };
 }
