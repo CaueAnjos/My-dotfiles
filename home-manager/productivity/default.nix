@@ -1,22 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
+  # NOTE: uses dropbox for syncing
   home.packages = with pkgs; [
     super-productivity
   ];
-
-  services.syncthing = {
-    settings = {
-      folders = {
-        tasks = {
-          enable = true;
-          lable = "Tasks";
-          path = "${config.home.homeDirectory}/Documents/Tasks";
-          devices = ["phone"];
-        };
-      };
-    };
-  };
 }
