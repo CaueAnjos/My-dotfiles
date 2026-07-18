@@ -141,12 +141,14 @@ in {
       ];
 
       bind = let
-        mkBind = key: luaExpr: {
-          _args = [
-            key
-            (mkLuaInline luaExpr)
-          ];
-        };
+        mkBind = key: luaExpr: [
+          {
+            _args = [
+              key
+              (mkLuaInline luaExpr)
+            ];
+          }
+        ];
 
         mkVimDirectionalBind = mod: luaExpr: let
           toDiraction = {
@@ -156,30 +158,111 @@ in {
             "l" = "r";
           };
         in
-          builtins.map (
+          builtins.concatLists (builtins.map (
             bind:
-              mkBind (mod + "+" + bind) "${luaExpr}({ direction = '${toDiraction.${bind}}' })"
-          ) ["h" "j" "k" "l"];
+              mkBind "${mod} + ${bind}"
+              # lua
+              ''
+                function()
+                    local direction = "${toDiraction.${bind}}"
+                    local func = (${luaExpr})
+                    func(direction)
+                end
+              ''
+          ) ["h" "j" "k" "l"]);
+
+        mkWorkspaceBind = mod: luaExpr:
+          builtins.concatLists (builtins.genList (
+              i: let
+                workspace = builtins.toString (i + 1);
+              in
+                mkBind "${mod} + code:1${builtins.toString i}"
+                # lua
+                ''
+                  function()
+                      local ws = "${workspace}"
+                      local func = (${luaExpr})
+                      func(ws)
+                  end
+                ''
+            )
+            9);
       in
-        [
-          (mkBind "SUPER + mouse:272" "hl.dsp.window.resize()")
-          (mkBind "SUPER + mouse:273" "hl.dsp.window.drag()")
-          (mkBind "SUPER + d" "hl.dsp.window.close()")
-          (mkBind "SUPER + q" "hl.dsp.window.kill()")
-          (mkBind "SUPER + f" "hl.dsp.window.fullscreen({ action = 'toggle', mode = 'maximized' })")
-        ]
-        ++ (mkVimDirectionalBind "SUPER + ALT" "hl.dsp.window.swap")
-        ++ (mkVimDirectionalBind "SUPER" "hl.dsp.focus")
-        ++ (mkVimDirectionalBind "SUPER + SHIFT" "hl.dsp.window.move")
-        ++ (builtins.concatLists (builtins.genList (
-            i: let
-              ws = i + 1;
-            in [
-              (mkBind "SUPER + code:1${toString i}" "hl.dsp.focus({ workspace = ${toString ws} } )")
-              (mkBind "SUPER + SHIFT + code:1${toString i}" "hl.dsp.window.move({ workspace = ${toString ws} } )")
-            ]
-          )
-          9));
+        builtins.concatLists [
+          (mkBind "SUPER + mouse:272"
+            # lua
+            ''
+              function()
+                  hl.dispatch(hl.dsp.window.resize())
+              end
+            '')
+          (mkBind "SUPER + mouse:273"
+            # lua
+            ''
+              function()
+                  hl.dispatch(hl.dsp.window.drag())
+              end
+            '')
+          (mkBind "SUPER + d"
+            # lua
+            ''
+              function()
+                  hl.dispatch(hl.dsp.window.close())
+              end
+            '')
+          (mkBind "SUPER + q"
+            # lua
+            ''
+              function()
+                  hl.dispatch(hl.dsp.window.kill())
+              end
+            '')
+          (mkBind "SUPER + f"
+            # lua
+            ''
+              function()
+                  hl.dispatch(hl.dsp.window.fullscreen({ action = 'toggle', mode = 'maximized' }))
+              end
+            '')
+
+          (mkVimDirectionalBind "SUPER + ALT"
+            # lua
+            ''
+              function(direction)
+                  hl.dispatch(hl.dsp.window.swap({ direction = direction }))
+              end
+            '')
+          (mkVimDirectionalBind "SUPER"
+            # lua
+            ''
+              function(direction)
+                  hl.dispatch(hl.dsp.focus({ direction = direction }))
+              end
+            '')
+          (mkVimDirectionalBind "SUPER + SHIFT"
+            # lua
+            ''
+              function(direction)
+                  hl.dispatch(hl.dsp.window.move({ direction = direction }))
+              end
+            '')
+
+          (mkWorkspaceBind "SUPER"
+            # lua
+            ''
+              function(ws)
+                  hl.dispatch(hl.dsp.focus({ workspace = ws, on_current_monitor = true }))
+              end
+            '')
+
+          (mkWorkspaceBind "SUPER + SHIFT"
+            # lua
+            ''
+              function(ws)
+                  hl.dispatch(hl.dsp.window.move({ workspace = ws }))
+              end
+            '')
+        ];
     };
   };
 }
