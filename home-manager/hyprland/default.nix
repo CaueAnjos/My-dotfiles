@@ -163,10 +163,12 @@ in {
       in
         [
           (mkBind "SUPER + mouse:272" "hl.dsp.window.resize()")
+          (mkBind "SUPER + mouse:273" "hl.dsp.window.drag()")
           (mkBind "SUPER + d" "hl.dsp.window.close()")
           (mkBind "SUPER + q" "hl.dsp.window.kill()")
           (mkBind "SUPER + f" "hl.dsp.window.fullscreen({ action = 'toggle', mode = 'maximized' })")
         ]
+        ++ (mkVimDirectionalBind "SUPER + ALT" "hl.dsp.window.swap")
         ++ (mkVimDirectionalBind "SUPER" "hl.dsp.focus")
         ++ (mkVimDirectionalBind "SUPER + SHIFT" "hl.dsp.window.move")
         ++ (builtins.concatLists (builtins.genList (
