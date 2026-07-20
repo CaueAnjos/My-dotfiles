@@ -6,6 +6,11 @@
 }: let
   inherit (lib.generators) mkLuaInline;
 in {
+  programs = {
+    hyprshot.enable = true;
+    satty.enable = true;
+  };
+
   wayland.windowManager.hyprland = {
     package = inputs.hyperland.packages.${pkgs.system}.hyprland;
     enable = true;
@@ -222,6 +227,30 @@ in {
             ''
               function()
                   hl.dispatch(hl.dsp.window.fullscreen({ action = 'toggle', mode = 'maximized' }))
+              end
+            '')
+          (mkBind "SUPER + p"
+            # lua
+            ''
+              function()
+                  local folder = "~/Documents/Images/Screenshots"
+                  hl.dispatch(hl.dsp.exec_raw("hyprshot -m output -m active --raw | satty --filename - --output-filename \"" .. folder .. "$(date +'%Y%m%d-%H%M%S')_NixOS.png\""))
+              end
+            '')
+          (mkBind "SUPER + CTRL+ p"
+            # lua
+            ''
+              function()
+                  local folder = "~/Documents/Images/Screenshots"
+                  hl.dispatch(hl.dsp.exec_raw("hyprshot -m window -m active --raw | satty --filename - --output-filename \"" .. folder .. "$(date +'%Y%m$d-%H%M%S')_NixOS.png\""))
+              end
+            '')
+          (mkBind "SUPER + ALT + p"
+            # lua
+            ''
+              function()
+                  local folder = "~/Documents/Images/Screenshots"
+                  hl.dispatch(hl.dsp.exec_raw("hyprshot -m region --raw | satty --filename - --output-filename \"" .. folder .. "$(date +'%Y%m$d-%H%M%S')_NixOS.png\""))
               end
             '')
 
