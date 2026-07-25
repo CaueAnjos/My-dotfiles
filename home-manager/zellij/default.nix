@@ -62,6 +62,10 @@ in {
       # UI
       ui.pane_frames.rounded_corner = option [true] [];
 
+      # serialization
+      session_serialization = option [true] [];
+      pane_viewport_serialization = option [true] [];
+
       keybinds = {
         unbind = option ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"] [];
         pane.bind = option ["q"] [
