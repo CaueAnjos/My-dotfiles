@@ -23,30 +23,28 @@ in {
             border_format = "#[fg=#6C7086]{char}";
             border_position = "top";
 
-            format_left = "{mode} #[fg=#${palette.base0D},bold]{session}";
+            format_left = "{mode}#[bg=#${palette.base02},fg=#${palette.base05}]  {session} #[bg=#${palette.base01},fg=#${palette.base02}]";
             format_center = "{tabs}";
-            format_right = "{mode}";
-            format_space = "";
+            format_right = "";
+            format_space = "#[bg=#${palette.base01},fg=#${palette.base01}] ";
 
-            hide_frame_for_single_pane = true;
+            tab_normal = "#[bg=#${palette.base01},fg=#${palette.base03}]{index} {name}  ";
+            tab_active = "#[bg=#${palette.base01},fg=#${palette.base04},bold,italic]@ {name}  ";
 
-            tab_normal = "#[fg=#6C7086] {name}";
-            tab_active = "#[fg=#9399B2,bold,italic] {name}";
-
-            mode_normal = "#[bg=#89B4FA] {name} ";
-            mode_locked = "#[bg=#89B4FA] {name} ";
-            mode_resize = "#[bg=#89B4FA] {name} ";
-            mode_pane = "#[bg=#89B4FA] {name} ";
-            mode_tab = "#[bg=#89B4FA] {name} ";
-            mode_scroll = "#[bg=#89B4FA] {name} ";
-            mode_enter_search = "#[bg=#89B4FA] {name} ";
-            mode_search = "#[bg=#89B4FA] {name} ";
-            mode_rename_tab = "#[bg=#89B4FA] {name} ";
-            mode_rename_pane = "#[bg=#89B4FA] {name} ";
-            mode_session = "#[bg=#89B4FA] {name} ";
-            mode_move = "#[bg=#89B4FA] {name} ";
-            mode_prompt = "#[bg=#89B4FA] {name} ";
-            mode_tmux = "#[bg=#ffc387] {name} ";
+            mode_normal = "#[bg=#${palette.base02},fg=#${palette.base0D}]▎#[bg=#${palette.base0D},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0D}]";
+            mode_locked = "#[bg=#${palette.base02},fg=#${palette.base0E}]▎#[bg=#${palette.base0E},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0E}]";
+            mode_resize = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_pane = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_tab = "#[bg=#${palette.base02},fg=#${palette.base0F}]▎#[bg=#${palette.base0F},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0F}]";
+            mode_scroll = "#[bg=#${palette.base02},fg=#${palette.base09}]▎#[bg=#${palette.base09},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base09}]";
+            mode_enter_search = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_search = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_rename_tab = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_rename_pane = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_session = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_move = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_prompt = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
+            mode_tmux = "#[bg=#${palette.base02},fg=#${palette.base0C}]▎#[bg=#${palette.base0C},fg=#${palette.base01}] {name} #[bg=#${palette.base02},fg=#${palette.base0C}]";
 
             mode_default_to_mode = "normal";
           };
@@ -76,7 +74,7 @@ in {
       pane_viewport_serialization = option [true] [];
 
       keybinds = {
-        unbind = option ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"] [];
+        unbind = option ["Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"] [];
         pane.bind = option ["q"] [
           {
             CloseFocus = [];
