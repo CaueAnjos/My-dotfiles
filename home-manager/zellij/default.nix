@@ -1,5 +1,9 @@
 {config, ...}: let
   inherit (config.colorScheme) palette;
+
+  mkArgs = _args: {inherit _args;};
+  mkChildren = _children: {inherit _children;};
+  option = args: children: (mkArgs args) // (mkChildren children);
 in {
   programs.zellij = {
     enable = true;
@@ -40,230 +44,144 @@ in {
         }
       ];
     };
+
     settings = {
+      # basic
+      on_force_close = option ["quit"] [];
+      simplified_ui = option [true] [];
+      pane_frames = option [false] [];
+      show_startup_tips = option [false] [];
+      mouse_mode = option [true] [];
       keybinds = {
-        unbind._args = ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"];
-        pane = {
-          _children = [
-            {
-              bind = {
-                _args = ["q"];
-                _children = [
-                  {
-                    CloseFocus._args = [];
-                    SwitchToMode._args = ["Normal"];
-                  }
-                ];
-              };
-            }
-          ];
-        };
-        shared_except = {
-          _args = ["locked"];
-          _children = [
-            {
-              bind = {
-                _args = ["Ctrl h"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["move_focus"];
-                          payload._args = ["left"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Ctrl j"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["move_focus"];
-                          payload._args = ["down"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Ctrl k"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["move_focus"];
-                          payload._args = ["up"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Ctrl l"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["move_focus"];
-                          payload._args = ["right"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Alt h"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["resize"];
-                          payload._args = ["left"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Alt j"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["resize"];
-                          payload._args = ["down"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Alt k"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["resize"];
-                          payload._args = ["up"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-            {
-              bind = {
-                _args = ["Alt l"];
-                _children = [
-                  {
-                    MessagePlugin = {
-                      _args = ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"];
-                      _children = [
-                        {
-                          name._args = ["resize"];
-                          payload._args = ["right"];
-                        }
-                      ];
-                    };
-                  }
-                ];
-              };
-            }
-          ];
-        };
-        normal._children = [
+        unbind = option ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"] [];
+        pane.bind = option ["q"] [
           {
-            bind = {
-              _args = ["Ctrl b"];
-              _children = [
-                {
-                  SwitchToMode._args = ["pane"];
-                }
-              ];
-            };
+            CloseFocus = [];
+            SwitchToMode = "Normal";
+          }
+        ];
+        shared_except = option ["locked"] [
+          {
+            bind = option ["Ctrl h"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "move_focus";
+                    payload = "left";
+                  }
+                ];
+              }
+            ];
           }
           {
-            bind = {
-              _args = ["Ctrl e"];
-              _children = [
-                {
-                  SwitchToMode._args = ["tab"];
-                }
-              ];
-            };
+            bind = option ["Ctrl j"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "move_focus";
+                    payload = "down";
+                  }
+                ];
+              }
+            ];
           }
           {
-            bind = {
-              _args = ["Ctrl x"];
-              _children = [
-                {
-                  SwitchToMode._args = ["session"];
-                }
-              ];
-            };
+            bind = option ["Ctrl k"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "move_focus";
+                    payload = "up";
+                  }
+                ];
+              }
+            ];
           }
           {
-            bind = {
-              _args = ["Ctrl ;"];
-              _children = [
-                {
-                  SwitchToMode._args = ["move"];
-                }
-              ];
-            };
+            bind = option ["Ctrl l"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "move_focus";
+                    payload = "right";
+                  }
+                ];
+              }
+            ];
           }
           {
-            bind = {
-              _args = ["Ctrl '"];
-              _children = [
-                {
-                  SwitchToMode._args = ["resize"];
-                }
-              ];
-            };
+            bind = option ["Alt h"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "resize";
+                    payload = "left";
+                  }
+                ];
+              }
+            ];
+          }
+          {
+            bind = option ["Alt j"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "resize";
+                    payload = "down";
+                  }
+                ];
+              }
+            ];
+          }
+          {
+            bind = option ["Alt k"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "resize";
+                    payload = "up";
+                  }
+                ];
+              }
+            ];
+          }
+          {
+            bind = option ["Alt l"] [
+              {
+                MessagePlugin = option ["https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm"] [
+                  {
+                    name = "resize";
+                    payload = "right";
+                  }
+                ];
+              }
+            ];
+          }
+        ];
+        normal = option [] [
+          {
+            bind = option ["Ctrl b"] [
+              {
+                SwitchToMode = "pane";
+              }
+            ];
+          }
+          {
+            bind = option ["Ctrl e"] [
+              {
+                SwitchToMode = "tab";
+              }
+            ];
+          }
+          {
+            bind = option ["Ctrl x"] [
+              {
+                SwitchToMode = "session";
+              }
+            ];
           }
         ];
       };
-
-      simplified_ui = true;
-      pane_frames = false;
-      show_startup_tips = false;
     };
   };
 }
