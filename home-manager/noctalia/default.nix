@@ -10,10 +10,7 @@ in {
     inputs.noctalia.homeModules.default
   ];
 
-  home.file."wallpapers" = {
-    source = wallpapers;
-    recursive = true;
-  };
+  home.file."wallpapers".source = wallpapers;
 
   programs.noctalia = {
     enable = true;
