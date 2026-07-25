@@ -53,6 +53,8 @@ in {
       show_startup_tips = option [false] [];
       default_layout = option ["dev"] [];
       mouse_mode = option [true] [];
+      osc8_hyperlinks = option [true] [];
+      focus_follows_mouse = option [true] [];
       keybinds = {
         unbind = option ["Ctrl g" "Ctrl p" "Ctrl n" "Ctrl o" "Ctrl t"] [];
         pane.bind = option ["q"] [
