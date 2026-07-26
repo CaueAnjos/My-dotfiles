@@ -62,6 +62,9 @@ in {
     zoxide.enable = true;
 
     bat.enable = true;
+
+    devenv.enable = true;
+
     direnv = {
       enable = true;
       silent = true;
