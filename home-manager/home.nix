@@ -1,15 +1,11 @@
 {config, ...}: {
   imports = [
     ./basic.nix
-    ./bat
     ./btop
     ./colorscheme.nix
     ./devtools.nix
     ./documents
-    ./eza
     ./fastfetch
-    ./fzf
-    ./git
     ./hyprland
     ./neovim
     ./noctalia

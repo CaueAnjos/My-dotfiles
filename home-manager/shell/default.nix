@@ -1,11 +1,4 @@
 {
-  home.shellAliases = {
-    ls = "eza";
-    la = "eza -A";
-    cat = "bat";
-    cd = "z";
-  };
-
   home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
@@ -13,6 +6,7 @@
       "fish_greeting".body = "";
     };
   };
+
   programs.starship = {
     enable = true;
 
