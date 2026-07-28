@@ -44,7 +44,7 @@ in {
 
     fzf = {
       enable = true;
-      changeDirWidgetCommand = "fd --type dir";
+      changeDirWidget.command = "fd --type dir";
       defaultCommand = "fd --type f";
       defaultOptions = [
         "--height 60%"
