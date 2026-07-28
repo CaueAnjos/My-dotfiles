@@ -38,6 +38,7 @@ in {
 
   home = {
     pointerCursor = {
+      enable = true;
       gtk.enable = true;
       hyprcursor.enable = true;
       inherit (currentTheme.gtk.cursorTheme) package name size;
