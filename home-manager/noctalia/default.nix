@@ -10,6 +10,10 @@ in {
     inputs.noctalia.homeModules.default
   ];
 
+  home.packages = with pkgs; [
+    ddcutil
+  ];
+
   home.file."wallpapers".source = wallpapers;
 
   programs.noctalia = {
