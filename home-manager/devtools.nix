@@ -13,7 +13,6 @@ in {
   home.shellAliases = {
     ls = "eza";
     cat = "bat";
-    cd = "z";
   };
 
   programs = {
