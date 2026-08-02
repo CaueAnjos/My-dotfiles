@@ -58,7 +58,11 @@ in {
       git = true;
     };
 
-    zoxide.enable = true;
+    zoxide = {
+      enable = true;
+      # Used to replace `cd`
+      options = ["--cmd cd"];
+    };
 
     bat.enable = true;
 
