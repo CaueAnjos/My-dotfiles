@@ -10,6 +10,7 @@
 
   services.xremap = {
     enable = true;
+    package = pkgs.xremap;
     withGnome = true;
     config.modmap = [
       {
