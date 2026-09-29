@@ -20,15 +20,16 @@ in {
 
       inputs.stylix.nixosModules.stylix
 
-      ./users.nix
-      ./stylix.nix
-      ./keyboard.nix
       ./boot.nix
+      ./configuration.nix
+      ./display-manager.nix
+      ./hardware-configuration.nix
+      ./keyboard.nix
+      ./mouse-fix.nix
       ./network.nix
       ./services.nix
-      ./configuration.nix
-      ./hardware-configuration.nix
-      ./display-manager.nix
+      ./stylix.nix
+      ./users.nix
       ./virtualisation.nix
     ];
   };
