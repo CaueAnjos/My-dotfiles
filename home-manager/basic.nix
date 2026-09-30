@@ -1,12 +1,32 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   home.packages = with pkgs; [
     nautilus
     gnome-clocks
     vlc
+
+    nvd
+    nix-output-monitor
   ];
 
-  programs.discord.enable = true;
-  programs.thunderbird.enable = true;
+  programs = {
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep 3 --keep-since 3d";
+      };
+      flake = config.home.homeDirectory + "/My-dotfiles";
+    };
+
+    discord.enable = true;
+    thunderbird.enable = true;
+  };
+
   services.easyeffects = {
     enable = true;
     extraPresets = {
