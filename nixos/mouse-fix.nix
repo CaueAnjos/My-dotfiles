@@ -3,8 +3,8 @@
 
   hardware.scrollReversalFilter = {
     enable = true;
-    confirmTicks = 8;
-    windowMs = 100;
+    confirmTicks = 10;
+    windowMs = 300;
     debug = true;
     trace = true;
   };
