@@ -5,6 +5,8 @@
     systems.url = "github:nix-systems/default-linux";
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
+    import-tree.url = "github:denful/import-tree";
+    wrapper-modules.url = "github:nix-community/nix-wrapper-modules";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,8 +41,12 @@
     flake-parts.lib.mkFlake {inherit inputs;}
     {
       imports = [
-        ./nixos
         ./home-manager
+
+        # New version
+        inputs.flake-parts.flakeModules.modules
+        inputs.flake-parts.flakeModules.easyOverlay
+        (inputs.import-tree ./modules)
       ];
 
       systems = import inputs.systems;
