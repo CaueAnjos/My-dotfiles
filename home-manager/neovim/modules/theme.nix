@@ -67,47 +67,6 @@ in {
       };
     };
 
-    statusline.lualine = {
-      enable = true;
-      activeSection.a = [
-        /*
-        lua
-        */
-        ''
-          {
-            "mode",
-            icons_enabled = true,
-            separator = {
-              left = '▎',
-              right = ''
-            },
-          }
-        ''
-        /*
-        lua
-        */
-        ''
-          {
-            function()
-              local reg = vim.fn.reg_recording()
-                if reg == "" then
-                  return ""
-                end
-              return "@" .. reg
-             end,
-          }
-        ''
-        /*
-        lua
-        */
-        ''
-          {
-            "",
-            draw_empty = true,
-            separator = { left = '', right = '' }
-          }
-        ''
-      ];
-    };
+    statusline.lualine.enable = true;
   };
 }
