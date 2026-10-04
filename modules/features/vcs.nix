@@ -5,21 +5,31 @@
     name = "CaueAnjos";
     email = "141049846+CaueAnjos@users.noreply.github.com";
   };
+
+  jj-kawid.settings = {
+    inherit user;
+    ui.default-command = "log";
+  };
+
+  git-kawid.settings = {
+    inherit user;
+    init.defaultBranch = "main";
+  };
 in {
-  perSystem = {config, ...}: {
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
     packages = {
       jj-kawid = wrappers.jujutsu.wrap {
-        settings = {
-          inherit user;
-          ui.default-command = "log";
-        };
+        inherit pkgs;
+        inherit (jj-kawid) settings;
       };
 
       git-kawid = wrappers.git.wrap {
-        settings = {
-          inherit user;
-          init.defaultBranch = "main";
-        };
+        inherit pkgs;
+        inherit (git-kawid) settings;
       };
     };
 
@@ -28,11 +38,22 @@ in {
     };
   };
 
-  flake.modules.homeManager.KawidVCS = {pkgs, ...}: {
-    home.packages = with pkgs; [
-      jj-kawid
-      git-kawid
-      gh
-    ];
+  flake.modules.homeManager.VCSKawid = {
+    programs = {
+      jujutsu = {
+        enable = true;
+        inherit (jj-kawid) settings;
+      };
+
+      git = {
+        enable = true;
+        inherit (git-kawid) settings;
+      };
+
+      gh = {
+        enable = true;
+        gitCredentialHelper.enable = true;
+      };
+    };
   };
 }

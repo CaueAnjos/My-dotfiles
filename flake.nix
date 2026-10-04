@@ -41,9 +41,6 @@
     flake-parts.lib.mkFlake {inherit inputs;}
     {
       imports = [
-        ./home-manager
-
-        # New version
         inputs.flake-parts.flakeModules.modules
         inputs.flake-parts.flakeModules.easyOverlay
         (inputs.import-tree ./modules)

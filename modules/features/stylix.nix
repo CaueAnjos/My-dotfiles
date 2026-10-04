@@ -1,8 +1,8 @@
-{inputs, ...}: {
-  flake.modules.nixos.ThemedStylix = {pkgs, ...}: let
-    # Theme for the whole system
-    theme = "gruvbox-dark-hard";
-  in {
+{inputs, ...}: let
+  # Theme for the whole system
+  theme = "gruvbox-dark-hard";
+in {
+  flake.modules.nixos.ThemedStylix = {pkgs, ...}: {
     imports = [
       inputs.stylix.nixosModules.stylix
     ];
@@ -12,6 +12,12 @@
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
       polarity = "dark";
       opacity.terminal = 0.7;
+
+      cursor = {
+        name = "Bibata-Modern-Ice";
+        package = pkgs.bibata-cursors;
+        size = 16;
+      };
 
       fonts = {
         serif = {
@@ -34,6 +40,15 @@
           name = "Noto Color Emoji";
         };
       };
+
+      icons = {
+        enable = true;
+        package = pkgs.gruvbox-plus-icons;
+        dark = "Gruvbox-Plus-Dark";
+        light = "Gruvbox-Plus-Light";
+      };
     };
   };
+
+  flake.modules.homeManager.ThemedStylix = {};
 }
