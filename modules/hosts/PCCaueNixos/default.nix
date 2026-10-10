@@ -12,6 +12,9 @@ in {
       ThemedStylix
       NixpkgsConfiguration
       Essentials
+
+      # Don't know if this is permanent
+      Keyring
     ];
   };
 }
