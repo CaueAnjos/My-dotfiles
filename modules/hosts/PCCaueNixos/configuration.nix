@@ -95,7 +95,6 @@
       nano.enable = false;
       nix-ld.enable = true;
       firefox.enable = true;
-      hyprland.enable = true;
 
       # HACK: this shouldn't be here at all
       steam = {
@@ -108,8 +107,6 @@
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
-
-    programs.hyprland.withUWSM = true;
 
     services = {
       xserver = {

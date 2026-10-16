@@ -1,9 +1,13 @@
-{inputs, ...}: {
-  flake.modules.homeManager.HyprlandKawid = {
-    pkgs,
-    lib,
-    ...
-  }: let
+{
+  flake.modules.nixos.Hyprland = {
+    programs.hyprland = {
+      enable = true;
+      withUWSM = true;
+      xwayland.enable = true;
+    };
+  };
+
+  flake.modules.homeManager.HyprlandKawid = {lib, ...}: let
     inherit (lib.generators) mkLuaInline;
   in {
     programs = {
@@ -12,7 +16,6 @@
     };
 
     wayland.windowManager.hyprland = {
-      package = inputs.hyperland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       enable = true;
       systemd.enable = false;
       settings = {

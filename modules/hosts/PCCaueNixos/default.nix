@@ -9,9 +9,11 @@ in {
     modules = with self.modules.nixos; [
       PCCaueNixosConfiguration
       PCCaueNixosHardware
+
       ThemedStylix
       NixpkgsConfiguration
       Essentials
+      Hyprland
 
       # Don't know if this is permanent
       Keyring
