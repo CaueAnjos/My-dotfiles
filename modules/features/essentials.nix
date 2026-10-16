@@ -1,4 +1,8 @@
-{self, ...}: let
+{
+  self,
+  inputs,
+  ...
+}: let
   basic = {pkgs}:
     with pkgs; [
       fd
@@ -12,6 +16,7 @@
       tinyxxd
       python3
       gcc
+      p7zip
     ];
 
   essentials = {pkgs}:
@@ -52,7 +57,13 @@ in {
   }: {
     imports = [
       self.modules.homeManager.VCSKawid
+      inputs.multiverse.homeManagerModules.default
     ];
+
+    multiverse = {
+      enable = true;
+      pins.zotero = "10.0.1";
+    };
 
     home.packages =
       (basic {inherit pkgs;})
@@ -62,7 +73,6 @@ in {
         vlc
 
         libreoffice
-        zotero
 
         nvd
         nix-output-monitor
@@ -70,6 +80,9 @@ in {
 
     programs = {
       fzf.enable = true;
+      yazi.enable = true;
+      bat.enable = true;
+      btop.enable = true;
 
       zoxide = {
         enable = true;

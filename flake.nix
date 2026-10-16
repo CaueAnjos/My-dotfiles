@@ -6,7 +6,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:denful/import-tree";
-    wrapper-modules.url = "github:nix-community/nix-wrapper-modules";
+    wrapper-modules = {
+      url = "github:nix-community/nix-wrapper-modules";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    multiverse.url = "github:fzakaria/nixpkgs-multiverse";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,13 +19,12 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia.url = "github:noctalia-dev/noctalia-shell";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     xremap-flake = {
       url = "github:xremap/nix-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
     };
-    hyperland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
     stylix = {
       url = "github:nix-community/stylix";
