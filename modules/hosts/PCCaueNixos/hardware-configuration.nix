@@ -1,4 +1,4 @@
-{self, ...}: {
+{
   flake.modules.nixos.PCCaueNixosHardware = {
     config,
     lib,
@@ -7,7 +7,6 @@
   }: {
     imports = [
       (modulesPath + "/installer/scan/not-detected.nix")
-      self.modules.nixos.ReverseScroll
     ];
 
     boot = {
@@ -38,12 +37,6 @@
       cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
       i2c.enable = true;
       steam-hardware.enable = true;
-
-      scrollReversalFilter = {
-        enable = true;
-        confirmTicks = 10;
-        windowMs = 300;
-      };
 
       graphics.enable = true;
       nvidia = {
