@@ -13,7 +13,8 @@
 
       csharp = {
         enable = true;
-        extensions.csharpls-extended-lsp-nvim.enable = true;
+        lsp.servers = ["roslyn-ls"];
+        extensions.roslyn-nvim.enable = true;
         format.type = ["csharpier"];
       };
 

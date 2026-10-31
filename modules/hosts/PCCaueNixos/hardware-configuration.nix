@@ -11,7 +11,8 @@
 
     boot = {
       initrd.availableKernelModules = ["nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod"];
-      initrd.kernelModules = [];
+      initrd.kernelModules = ["nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm"];
+      kernelParams = ["nvidia_drm.modeset=1" "nvidia_drm.fbdev=1" "video=DP-1:1920x1080@300"];
       kernelModules = ["kvm-amd"];
       extraModulePackages = [];
     };

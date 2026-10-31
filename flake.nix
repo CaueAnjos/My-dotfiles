@@ -34,6 +34,10 @@
       url = "github:AngelJumbo/gruvbox-wallpapers";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    qylock = {
+      url = "github:Darkkal44/qylock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

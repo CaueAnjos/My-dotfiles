@@ -10,7 +10,7 @@
   }: {
     imports = [
       inputs.noctalia.homeModules.default
-      self.modules.homeManager.Wallpapers
+      self.modules.homeManager.ThemedStylix
     ];
 
     home.packages = with pkgs; [

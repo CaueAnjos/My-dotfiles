@@ -2,16 +2,38 @@
   # Theme for the whole system
   theme = "gruvbox-dark-hard";
 in {
-  flake.modules.nixos.ThemedStylix = {pkgs, ...}: {
-    imports = [
-      inputs.stylix.nixosModules.stylix
+  flake.modules.nixos.ThemedStylix = {
+    pkgs,
+    config,
+    lib,
+    ...
+  }: let
+    wallpapers = inputs.gruvbox-walls.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    image = "${wallpapers}/momo_ayase_gruvbox.png";
+  in {
+    imports = with inputs; [
+      stylix.nixosModules.stylix
+      qylock.nixosModules.default
     ];
+
+    boot.loader.limine.style = {
+      interface.resolution = "1920x1080";
+      graphicalTerminal.background = lib.mkForce "80${config.lib.stylix.colors.base00}";
+    };
+
+    programs.qylock = {
+      enable = true;
+      theme = "women-umbrella";
+      sddm.enable = true;
+      quickshell.enable = false;
+    };
 
     stylix = {
       enable = true;
       base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
       polarity = "dark";
       opacity.terminal = 0.7;
+      inherit image;
 
       cursor = {
         name = "Bibata-Modern-Ice";
@@ -50,5 +72,9 @@ in {
     };
   };
 
-  flake.modules.homeManager.ThemedStylix = {};
+  flake.modules.homeManager.ThemedStylix = {pkgs, ...}: let
+    wallpapers = inputs.gruvbox-walls.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  in {
+    home.file."wallpapers".source = wallpapers;
+  };
 }

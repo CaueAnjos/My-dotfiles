@@ -25,20 +25,27 @@
           canTouchEfiVariables = true;
           efiSysMountPoint = "/boot";
         };
-        grub = {
-          gfxmodeEfi = "1920x1080,1280x1024,auto";
+        limine = {
           enable = true;
-          efiSupport = true;
-          device = "nodev";
-          useOSProber = true;
+
+          # NOTE: this should, probably, be changed by PC
+          extraEntries = ''
+            /Windows
+                protocol: efi
+                path: uuid(485e51a8-845f-42d2-9bdb-7c294c97a854):/EFI/Microsoft/Boot/bootmgfw.efi
+          '';
         };
-        timeout = -1;
       };
 
       consoleLogLevel = 3;
-      initrd.verbose = false;
       plymouth = {
         enable = true;
+        theme = lib.mkForce "rings";
+        themePackages = lib.mkForce [
+          (pkgs.adi1090x-plymouth-themes.override {
+            selected_themes = ["rings"];
+          })
+        ];
       };
 
       kernelParams = [
@@ -122,10 +129,6 @@
         sddm = {
           enable = true;
           wayland.enable = true;
-          theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
-          extraPackages = with pkgs; [
-            sddm-astronaut
-          ];
         };
       };
 

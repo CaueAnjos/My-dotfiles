@@ -8,7 +8,10 @@
 
   jj-kawid.settings = {
     inherit user;
-    ui.default-command = "log";
+    ui = {
+      default-command = "log";
+      editor = ["vim"];
+    };
   };
 
   git-kawid.settings = {

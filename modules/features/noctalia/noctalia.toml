@@ -339,7 +339,6 @@ launcherIcon = ""
 launcherIconColor = "none"
 launcherPosition = "end"
 launcherUseDistroLogo = false
-monitors = []
 onlySameOutput = true
 pinnedApps = []
 pinnedStatic = false
@@ -460,7 +459,14 @@ weatherTaliaMascotAlways = false
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lockscreen-widget-0000000000000001" ]
+widget_order = [
+    "lockscreen-login-box@DP-2",
+    "lockscreen-login-box@DP-1",
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002",
+    "lockscreen-widget-0000000000000003",
+    "lockscreen-widget-0000000000000004"
+]
 
     [lockscreen_widgets.grid]
     cell_size = 32
@@ -468,38 +474,60 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 196.0
+    box_width = 810.0
     cx = 960.0
     cy = 957.0
     output = "DP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
         show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 196.0
+    box_width = 810.0
     cx = 960.0
-    cy = 957.0
+    cy = 958.0
     output = "DP-2"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
+        center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
         show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 128.0
@@ -507,11 +535,50 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
     cx = 960.0
     cy = 540.0
     output = "DP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
     rotation = 0.0
     type = "clock"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
         background = false
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 960.0
+    cy = 489.0
+    output = "DP-2"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "calendar"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1764.0
+    cy = 110.0
+    output = "DP-2"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "weather"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 1764.0
+    cy = 250.5
+    output = "DP-2"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "sysmon"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
 
 [network]
 bluetoothAutoConnect = true
@@ -645,8 +712,11 @@ showKeybinds = true
     enabled = false
     keybind = ""
 
-[shell.panel]
-transparency_mode = "glass"
+[shell]
+settings_window_translucent = true
+
+    [shell.panel]
+    transparency_mode = "glass"
 
 [systemMonitor]
 batteryCriticalThreshold = 5
@@ -676,9 +746,11 @@ activeTemplates = []
 enableUserTheming = false
 
 [theme]
-builtin = "Gruvbox"
+builtin = "Ayu"
+community_palette = "ADW"
+custom_palette = "stylix"
 mode = "dark"
-source = "wallpaper"
+source = "custom"
 wallpaper_scheme = "m3-content"
 
     [theme.templates]
@@ -741,16 +813,34 @@ wallhavenSorting = "relevance"
 wallpaperChangeMode = "random"
 
     [wallpaper.default]
-    path = "/home/kawid/wallpapers/cabin.png"
+    path = "/home/kawid/wallpapers/momo_ayase_gruvbox.png"
 
     [wallpaper.last]
-    path = "/home/kawid/wallpapers/cabin.png"
+    path = "/home/kawid/wallpapers/momo_ayase_gruvbox.png"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/kawid/wallpapers/cabin.png"
+    path = "/home/kawid/wallpapers/momo_ayase_gruvbox.png"
 
     [wallpaper.monitors.DP-2]
+    path = "/home/kawid/wallpapers/momo_ayase_gruvbox.png"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
     path = "/home/kawid/wallpapers/cabin.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/kawid/wallpapers/bush.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
+
+    [[wallpaper.favorite]]
+    palette_source = "wallpaper"
+    path = "/home/kawid/wallpapers/coding.png"
+    theme_mode = "dark"
+    wallpaper_scheme = "m3-content"
 
 [weather]
 effects = false
